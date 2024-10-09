@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oUr7tNR85/I=",
+  "dgSpecHash": "CM7qAaNx9hU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul\\WorldOfZuul\\WorldOfZuul.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\WorldOfZuul.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
