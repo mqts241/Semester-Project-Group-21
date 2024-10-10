@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\WorldOfZuul.csproj": {}
+    "C:\\Users\\mihne\\Semester-Project-Group-21\\WorldOfZuul.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\WorldOfZuul.csproj": {
+    "C:\\Users\\mihne\\Semester-Project-Group-21\\WorldOfZuul.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+        "projectUniqueName": "C:\\Users\\mihne\\Semester-Project-Group-21\\WorldOfZuul.csproj",
         "projectName": "WorldOfZuul",
-        "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\WorldOfZuul.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\Uni\\SDU\\Semster Project 1\\WorldOfZuul Group 21\\Semester-Project-Group-21\\obj\\",
+        "projectPath": "C:\\Users\\mihne\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+        "packagesPath": "C:\\Users\\mihne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mihne\\Semester-Project-Group-21\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mihne\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
