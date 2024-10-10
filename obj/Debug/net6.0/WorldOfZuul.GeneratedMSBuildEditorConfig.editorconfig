@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WorldOfZuul
+<<<<<<< HEAD
 build_property.ProjectDir = D:\Lucru\Semester project\Code\Semester-Project-Group-21\
+=======
+build_property.ProjectDir = C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul Group 21\Semester-Project-Group-21\
+>>>>>>> c7836f6aa43e4cf54898552bb771bc86ef8e401d
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
