@@ -13,23 +13,24 @@
         private void CreateRooms()
         {
             // This is where you add rooms
-            Room? outside = new("Outside", "You are standing outside the main entrance of the university. To the east is a large building, to the south is a computing lab, and to the west is the campus pub.");
-            Room? theatre = new("Theatre", "You find yourself inside a large lecture theatre. Rows of seats ascend up to the back, and there's a podium at the front. It's quite dark and quiet.");
-            Room? pub = new("Pub", "You've entered the campus pub. It's a cozy place, with a few students chatting over drinks. There's a bar near you and some pool tables at the far end.");
-            Room? lab = new("Lab", "You're in a computing lab. Desks with computers line the walls, and there's an office to the east. The hum of machines fills the room.");
-            Room? office = new("Office", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
+            Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.");
+            Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. North you will enter the village.");
+            Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
+            Room? rhino = new("Rhino", "You have entered the rhino territory.");
+            Room? lion = new("Lion", "You have entered the lion territory.");
+            
             //This is where you se exits
-            outside.SetExits(null, theatre, lab, pub); // North, East, South, West
+            village_mainroad.SetExits(null, savannah_hub, market, null); // North=HUB, East, South, West
 
-            theatre.SetExit("west", outside);
+            savannah_hub.SetExits(null, lion, rhino, village_mainroad);
 
-            pub.SetExit("east", outside);
+            market.SetExit("north", village_mainroad);
 
-            lab.SetExits(outside, office, null, null);
+            rhino.SetExit("north", savannah_hub);
 
-            office.SetExit("west", lab);
+            lion.SetExit("west", savannah_hub);
 
-            currentRoom = outside;
+            currentRoom = village_mainroad;
         }
 
         public void Play()

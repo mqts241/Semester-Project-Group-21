@@ -27,3 +27,18 @@ C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\WorldOfZuul.pdb
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\WorldOfZuul.genruntimeconfig.cache
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\ref\WorldOfZuul.dll
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.exe
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.deps.json
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.runtimeconfig.json
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.dll
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.pdb
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.AssemblyInfoInputs.cache
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.AssemblyInfo.cs
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.csproj.CoreCompileInputs.cache
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.sourcelink.json
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.dll
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\refint\WorldOfZuul.dll
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.pdb
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.genruntimeconfig.cache
+C:\Users\bomio\Uni\Semester Project\Semester-Project-Group-21\obj\Debug\net6.0\ref\WorldOfZuul.dll
