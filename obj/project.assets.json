@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+      "projectUniqueName": "C:\\Users\\bomio\\Uni\\Semester Project\\Semester-Project-Group-21\\WorldOfZuul.csproj",
       "projectName": "WorldOfZuul",
-      "projectPath": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+      "projectPath": "C:\\Users\\bomio\\Uni\\Semester Project\\Semester-Project-Group-21\\WorldOfZuul.csproj",
       "packagesPath": "C:\\Users\\bomio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\obj\\",
+      "outputPath": "C:\\Users\\bomio\\Uni\\Semester Project\\Semester-Project-Group-21\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bomio\\AppData\\Roaming\\NuGet\\NuGet.Config"
