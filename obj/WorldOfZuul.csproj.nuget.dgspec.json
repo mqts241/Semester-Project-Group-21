@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj": {}
+    "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj": {}
   },
   "projects": {
-    "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj": {
+    "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+        "projectUniqueName": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj",
         "projectName": "WorldOfZuul",
-        "projectPath": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj",
-        "packagesPath": "C:\\Users\\mihne\\.nuget\\packages\\",
-        "outputPath": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\obj\\",
+        "projectPath": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+        "packagesPath": "C:\\Users\\bomio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bomio\\Uni\\Semester Project\\SP repository\\Semester-Project-Group-21\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihne\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\bomio\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
