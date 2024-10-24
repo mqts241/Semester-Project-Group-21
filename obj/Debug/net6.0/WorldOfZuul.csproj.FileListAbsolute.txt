@@ -27,3 +27,18 @@ C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\WorldOfZuul.pdb
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\WorldOfZuul.genruntimeconfig.cache
 C:\Users\Dell\OneDrive\Desktop\Uni\SDU\Semster Project 1\WorldOfZuul\WorldOfZuul\obj\Debug\net6.0\ref\WorldOfZuul.dll
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.GeneratedMSBuildEditorConfig.editorconfig
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.AssemblyInfoInputs.cache
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.AssemblyInfo.cs
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.csproj.CoreCompileInputs.cache
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.sourcelink.json
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.dll
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\refint\WorldOfZuul.dll
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.pdb
+D:\Lucru\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.exe
+D:\Lucru\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.deps.json
+D:\Lucru\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.runtimeconfig.json
+D:\Lucru\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.dll
+D:\Lucru\Semester-Project-Group-21\bin\Debug\net6.0\WorldOfZuul.pdb
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\WorldOfZuul.genruntimeconfig.cache
+D:\Lucru\Semester-Project-Group-21\obj\Debug\net6.0\ref\WorldOfZuul.dll

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+      "projectUniqueName": "D:\\Lucru\\Semester-Project-Group-21\\WorldOfZuul.csproj",
       "projectName": "WorldOfZuul",
-      "projectPath": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\WorldOfZuul.csproj",
+      "projectPath": "D:\\Lucru\\Semester-Project-Group-21\\WorldOfZuul.csproj",
       "packagesPath": "C:\\Users\\mihne\\.nuget\\packages\\",
-      "outputPath": "D:\\Lucru\\Semester project\\Code\\Semester-Project-Group-21\\obj\\",
+      "outputPath": "D:\\Lucru\\Semester-Project-Group-21\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mihne\\AppData\\Roaming\\NuGet\\NuGet.Config"
