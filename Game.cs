@@ -113,9 +113,13 @@
             //CHANGE WELCOME!!
         private static void PrintWelcome()
         {
-            Console.WriteLine("Welcome to the World of Zuul!");
-            Console.WriteLine("World of Zuul is a new, incredibly boring adventure game.");
-            PrintHelp();
+            Console.WriteLine("\n\n\t\t  ____                  _                      ___     ____           _                ");
+            Console.WriteLine("\t\t |  _ \\ ___   __ _  ___| |__   ___ _ __ ___   ( _ )   |  _ \\ ___  ___| |_ ___ _ __ ___ ");
+            Console.WriteLine("\t\t | |_) / _ \\ / _` |/ __| '_ \\ / _ \\ '__/ __|  / _ \\/\\ | |_) / _ \\/ __| __/ _ \\ '__/ __|"); 
+            Console.WriteLine("\t\t |  __/ (_) | (_| | (__| | | |  __/ |  \\__ \\ | (_>  < |  __/ (_) \\__ \\ ||  __/ |  \\__ \\");
+            Console.WriteLine("\t\t |_|   \\___/ \\__,_|\\___|_| |_|\\___|_|  |___/  \\___/\\/ |_|   \\___/|___/\\__\\___|_|  |___/\n\n\n");
+            
+            PrintCmds();
             Console.WriteLine();
         }
             //CHANGE PRINT HELP
