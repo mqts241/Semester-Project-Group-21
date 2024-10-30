@@ -8,11 +8,10 @@ namespace WorldOfZuul
 {
     public class Command
     {
-        //Mess with this if you do not like being happ
         public string Name { get; }
-        public string? SecondWord { get; } // this might be used for future expansions, such as "take apple".
+        public string? SecondWord { get; }
 
-        public Command(string name, string? secondWord = null)
+        public Command(string name, string? secondWord)
         {
             Name = name;
             SecondWord = secondWord;
