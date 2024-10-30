@@ -10,6 +10,8 @@ namespace WorldOfZuul
     {
         public List<string> ValidCommands { get; } = new List<string> { "north", "east", "south", "west", "look", "back", "commands", "cmds", "quit", "take", "throw", "give", "inventory", "view", "inv"};
 
+
+
         public bool IsValidCommand(string command)
         {
             return ValidCommands.Contains(command);

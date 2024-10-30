@@ -27,5 +27,4 @@ namespace WorldOfZuul
             return new Command(words[0], null);
         }
     }
-
 }

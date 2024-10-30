@@ -10,7 +10,6 @@ namespace WorldOfZuul
     {
         public string Name { get; }
         public string? SecondWord { get; }
-
         public Command(string name, string? secondWord)
         {
             Name = name;
