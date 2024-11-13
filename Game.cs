@@ -10,7 +10,6 @@ public class Game
         private Room? previousRoom;
         private static Inventory Inventory = new();
         private int Reputation { get; set; } = 0;
-
         Room? changing_room = new("Changing Room", "A Changing Room, where the Rangers leave their personal belongings and change into their uniform, to begin their duty. There is no one, you arrived late again. >:(");
         Room? operations_center = new("The Operations Center", "Welcome to your main office, where you get the missions intel from your Ranger Chief, it seems that there is no one, but they left the official poster with the assigned shifts and tasks.");
         Room? training_room = new("The Training Room", "Where new recruits prove their worth for ranger duty, it is primary protocol to conduct a skills check before beginning each mission.");

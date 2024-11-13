@@ -3,7 +3,6 @@ namespace WorldOfZuul;
 public class Region{
   public string? Name { get; set; }
   private bool HasPoster { get; set; } = false;
-
   public void SetPosters(int reputation){
     int maxlenght = 99;
     bool view = true;
