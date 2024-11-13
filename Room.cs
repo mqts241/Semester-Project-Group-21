@@ -7,6 +7,8 @@
         public Region Area {get; private set;} = new();
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
+        //New property to add Choices to a room
+        public Choice? RoomChoice { get; set; }
         
         public Room(string shortDesc, string longDesc, string? region = null)
         {
@@ -61,6 +63,10 @@
             }
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
+        }
+        public void SetChoice(Choice choice)
+        {
+            RoomChoice = choice;
         }
     }
 

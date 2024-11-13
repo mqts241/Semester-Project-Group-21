@@ -30,18 +30,18 @@ public class Game
         Room? hideout = new("The Hideout", "Between the bushes, you finally find the source of the signal, a big jail trailer loaded with an adult and 2 young gorillas trapped, you spot the poachers at the distance, loading stuff and getting ready to leave with their capture, the time is ticking, you must do something.", "Afr_Mf");
 
         // Zebra -
-        Room? grassland = new("Grassland", "You have arrived in the Grassland. The only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains. The tree looks like a good spot for a poster", "Afr_Grass");
-        Room? tree = new("Tree", "You decided to go west in the direction of the tree. While approaching the tree you notice a small wooden board nailed to the tree. A bit further to the west of the tree you also notice a small rangers' hut, with a Jeep next to it. You expect to find some helpful supplies in the hut.", "Afr_Grass");
-        Room? hut = new("Hut", "You entered the hut. When you entered you looked around and two items fell into your sight. First, keys for the jeep, which you already saw when coming here. Second, a flare gun, which could come in handy later.", "Afr_Grass");
-        Room? highGrass = new("High Grass", "You are driving into high grass. Not long after you start hearing loud sounds of hoofs hitting the ground from the south and you hear humans shouting as well. You quickly approach the area where the sounds come from.", "Afr_Grass");
-        Room? openPlains = new("Open plains","You arrive at the open plains. A big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better. Annoyed by this sight you start following the poachers.", "Afr_Grass");
-        Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers. Either you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.", "Afr_Grass");
+           Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster");
+           Room? tree = new("Tree", "You decided to in the direction of the tree.\nWhile approaching the tree you notice a small wooden board nailed to the tree. A bit further to the west of the tree you also notice a small rangers' hut, with a Jeep next to it.\nYou expect to find some helpful supplies in the hut.");
+           Room? hut = new("Hut", "You entered the hut.\nWhen you entered you looked around and two items fell into your sight.\nFirst, keys for the jeep, which you already saw when coming here. Second, a flare gun, which could come in handy later.");
+           Room? highGrass = new("High Grass", "You are driving into high grass.\nNot long after you start hearing loud sounds of hoofs hitting the ground from the south and you hear humans shouting as well.\nYou should quickly approach the area where the sounds come from.");
+           Room? openPlains = new("Open plains","You arrive at the open plains.\nA big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better.\nAnnoyed by this sight you start following the poachers.");
+           Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers.\nEither you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.");
            
-        // Elephant - 
-        Room? forest = new("Forest", "You arrive in the thick African forest. You find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there. Maybe you can find a good place for a poster there.", "Afr_For");
-        Room? smallClearing = new("Small Clearing","You reached the small clearing. You see a big tree seems like a good spot for a poster.", "Afr_For");
-        Room? waterhole = new("Waterhole", "You followed the path to the east. There you encounter a small waterhole. Next to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.", "Afr_For");
-        Room? deepForest = new("Deep Forest", "You chose to chase after the poachers, they escape in their jeep before you can catch up to them.", "Afr_For"); 
+           // Elephant - 
+           Room? forest = new("Forest", "You arrive in the thick African forest.\nYou find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there.\nMaybe you can find a good place for a poster at the small clearing.");
+           Room? smallClearing = new("Small Clearing","You reached the small clearing.\nYou see a big tree seems like a good spot for a poster.");
+           Room? waterhole = new("Waterhole", "You encounter a small waterhole.\nNext to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.");
+           Room? water = new("Water", "You got near to the water. It looks a bit weird. It seems to be poisoned!"); 
            
         // Savvanah -
         Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.", "Afr_Sav");
@@ -92,8 +92,8 @@ public class Game
             // Forest
             forest.SetExits(null, waterhole, Hub_Africa , smallClearing);
             smallClearing.SetExit("east", forest);
-            waterhole.SetExit("north", deepForest);
-            deepForest.SetExit("south", waterhole);
+            waterhole.SetExit("north", water);
+            water.SetExit("south", waterhole);
             // Savvanah
             village_mainroad.SetExits(null, savannah_hub, market, Hub_Africa); // North=HUB, East, South, West
             savannah_hub.SetExits(null, lion, rhino, village_mainroad);
@@ -138,6 +138,55 @@ public class Game
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             Hub_Africa.AddItem(item1);
+            //Here you can create choices and add them to your room
+
+                //Decision Room: Action
+                List<string> scareOptions = new List<string>
+                {
+                    "Use the flare gun",
+                    "Don't use the flare gun and confront the poachers yourself"
+                };
+
+                Dictionary<int, string> scareResults = new Dictionary<int, string>
+                {
+                    {1, "You take the flare gun out of your pocket and aim it into the sky.\nWith a loud bang you shoot the flare into the sky. It explodes with another loud bang.\nThe poachers, seemingly scared and shocked by the noise, flee into the wilderness.\nBut just after the poachers went into a different direction, you notice the herd of zebras scattering apart.\nThey are in even more panic than before, some of them disoriented, not knowing where to go.\nYou now are in the thought that your actions, even though you scared off the poachers, made the zebras even more traumatized than they were before."},
+                    {2, "You step on the gas until you are right next to the poachers' Jeep.\nYou roll down your window and shout, “You are under arrest! Stop right now or face the consequences! I have reinforcements on the way!”\nThe poachers look and you with fear of being caught.They also seem to fear the possible reinforcement, which you lied about.\nFortunately, they decide to escape into the wilderness. The zebras were able to come to a stop.\nThey seem tired but are luckily unharmed. You are relieved. You were able to resolve the problem without harming anybody and without putting yourself in further danger."}
+                };
+
+                Choice scareChoice = new Choice("How would you like to scare away the poachers?", scareOptions, scareResults);
+                action.SetChoice(scareChoice);
+
+                //Decision Room: Waterhole
+                List<string> followOptions = new List<string>
+                {
+                    "Help the elephant and let the poachers go",
+                    "Follow the poachers and help the elephant later"
+                };
+
+                Dictionary<int, string> followResults = new Dictionary<int, string>
+                {
+                    {1, "You take out the chest you found earlier and take out the antidote.\nAfter infusing the antidote to the elephant, the elephant stabilized.\nYou still must find the reason for the poisoning. \nYou should examine the water in the waterhole to the north."},
+                    {2, "You chose to chase after the poachers, they escape in their jeep before you can catch up to them.\nBy the time you return, you hear the elephant make loud noises and you rush to him to give him the antidote.\nYou successfully helped the elephant, but it suffered a great loss. The elephant does not have feelings in his front right leg and can’t walk properly now.\nYou feel guilty and disappointed in yourself, but you still should find the reason for the poisoning.\nYou should examine the water in the waterhole to the north."}
+                };
+
+                Choice followChoice = new Choice("What will you do Safe the elephant first or follow the poachers?", followOptions, followResults);
+                waterhole.SetChoice(followChoice);
+
+                //Decision Room: Water
+                List<string> neutralizeOptions = new List<string>
+                {
+                    "Use the neutralizer from the box",
+                    "Keep the neutralizer for something else"
+                };
+
+                Dictionary<int, string> neutralizeResults = new Dictionary<int, string>
+                {
+                    {1, "Using the neutralizer from the chest, you cleanse the water, ensuring that no other animals will fall victim."},
+                    {2, "You decided to not use the neutralizer. You can't change your mind anymore!"}
+                };
+
+                Choice neutralizerChoice = new Choice("The water seems to be poisoned will you use the neutralizer or not?",neutralizeOptions, neutralizeResults);
+                water.SetChoice(neutralizerChoice);
         }
     
         public void Play()
@@ -172,6 +221,28 @@ public class Game
                 {
                     case "look":
                         Console.WriteLine(currentRoom?.LongDescription);
+                        if (currentRoom?.RoomChoice != null)
+                        {
+                            int choice = currentRoom.RoomChoice.MakeChoice();
+
+                            //Display the result of your choice with GetResult method
+                            string result = currentRoom.RoomChoice.GetResult(choice);
+
+                            /*Could be useful if we want a command to be executed as a result of a Choice
+                            if (result.StartsWith("cmd:"))
+                            {
+                                string cmd = result.Substring(4);
+                                ProcessCommand(cmd);
+                            }
+                            */
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine(result);
+                            Console.ResetColor();
+
+                            //If the choices are supposed to be one-time only if not we need to take that out
+                            currentRoom.RoomChoice = null;
+                        }
                         break;
 
                     case "back":
