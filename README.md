@@ -5,7 +5,7 @@
   * Reputation level for the player to gain/lose during the game (which will output at the end different messages depending on the reputation score; more details later)
 
   * Regions (each room can be apart of a region) - it helps us with poster handling and it's easier to control it on a bigger area, rather than by rooms.
-  The following list shows the regions and their names* as given in the game:
+  The following list shows the regions and their names as given in the game:
     * Africa HUB - "Afr"
     * Africa Mountain Forest - "Afr_Mf"
     * Africa Grassland - "Afr_Grass"
@@ -49,6 +49,7 @@
   * Updated the variables to "private" for all the values that should not be accessed outside thier specific class. This includes most values apart from the commands (because we still need to access them since the players input is modified in-game)
 
 
-## OTHER NOTES:
-  * (To be modified LATER) The "give" command will be added to the NPC class when the NPC update comes.
-  * *if you want to change the name of the region please make sure you change the region name to every room that is part of it also change the switch case in the 'SetPoster' function.
+> [!IMPORTANT]
+> **OTHER NOTES**
+>  * (To be modified LATER) The "give" command will be added to the NPC class when the NPC update comes.
+>  *  if you want to change the name of the region please make sure you change the region name to every room that is part of it also change the switch case in the 'SetPoster' function.
