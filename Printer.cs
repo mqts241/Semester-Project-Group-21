@@ -20,6 +20,7 @@ public class Printer{
     Console.WriteLine("> Type 'take' to take an item from an area.");
     Console.WriteLine("> Type 'throw' to place an item in an area.");
     Console.WriteLine("> Type 'give' to give an item to someone.");
+    Console.WriteLine("> Type 'use' to use a specific item in an area.");
     Console.WriteLine("> Type 'inventory' or 'inv' to have a list of the items in your inventory.");
     Console.WriteLine("> Type 'poster' to put up a poster in an area.");
     Console.WriteLine("> Type 'quit' to exit the game.\n");

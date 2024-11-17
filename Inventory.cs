@@ -84,4 +84,79 @@ public class Inventory
       Console.ResetColor();
     }
   }
+
+  public void Use(Room currentRoom)
+  {
+    //The inventory must not be empty
+    if(IsEmpty() == true){
+      Console.ForegroundColor = ConsoleColor.Red;
+      Console.WriteLine("You cannot use what you dont have.");
+      Console.ResetColor();
+      return;
+    }
+
+    //Loop until Item is either used correctly or cancelled
+    bool usedItem = false;
+    while(!usedItem){
+      
+      //USE List
+      Console.ForegroundColor = ConsoleColor.Yellow;
+      Console.WriteLine("What item do you want to use?");
+      Console.ResetColor();
+      for(int i = 0; i < Items.Count; i++){ 
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"{i+1}.{Items[i]?.Name}");  //DEFINITION: {Number (starting from 1)}. {Item's name}
+        Console.ResetColor();
+      }
+      Console.ForegroundColor = ConsoleColor.Yellow;
+      Console.WriteLine("x. Cancel");
+      Console.ResetColor();
+
+      //Players Input
+      string? selection = Console.ReadLine();
+
+      //Cancel Use Command
+      if(selection == "x"){
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Item selection Cancelled");
+        Console.ResetColor();
+        return;
+      }
+
+      //Parse to check the validity of the input
+      if(int.TryParse(selection, out int selectedIndex)){//It checks if the input can be converted into a integer, basically a valid number
+
+        if(selectedIndex >= 1 && selectedIndex <= Items.Count){ //it tests the input to see if its in the range of use-list inventory
+          Item? selectedItem = Items[selectedIndex - 1]; //Retake item  from players inventory
+          Console.ForegroundColor = ConsoleColor.Gray;
+          Console.WriteLine($"You use {selectedItem?.Name}"); //Shows the name of the selected item
+          Console.ResetColor();
+          ItemUse itemUse = new(currentRoom);
+
+          if(itemUse.CanUseItem(selectedItem!)){
+            itemUse.UseItemResult(selectedItem!);
+            usedItem = true; //exits loop
+          }
+          else{
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You cant use this item here!");
+            Console.ResetColor();
+          }
+        }
+
+        else{
+          Console.ForegroundColor = ConsoleColor.Red;
+          Console.WriteLine("Invalid selection, please select an item by typing the Index number only.");
+          Console.ResetColor();
+        }
+
+      }
+
+      else{
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Invalid input. Please enter an Index number or x to cancel.");
+        Console.ResetColor();
+      }
+    }
+  }
 }

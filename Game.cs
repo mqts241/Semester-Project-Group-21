@@ -134,10 +134,14 @@ public class Game
             // Item [name of item] = new("[Name]","[Description]")
             //TEST ITEMS
             Item item1 = new("Item1", "It can be found in the Africa HUB");
+            Item item2 = new("Item2", "It can be found in the Africa HUB");
+            Item item3 = new("Item3", "It can be found in the Africa HUB");
             
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
-            Hub_Africa.AddItem(item1);
+            changing_room.AddItem(item1);
+            changing_room.AddItem(item2);
+            changing_room.AddItem(item3);
         }
     
         public void Play()
@@ -238,6 +242,10 @@ public class Game
                             Console.ResetColor();
                         }
                         break;
+                    
+                    case "use":
+                        Inventory?.Use(currentRoom!);
+                    break;
                   
                     case "view":   //COMMAND USED FOR TESTING TO SEE WHERE THE ITEMS ARE IN EACH ROOM
                         currentRoom?.View();
