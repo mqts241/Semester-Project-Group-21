@@ -1,6 +1,23 @@
-# Semester-Project-Group-21
-● UPDATE LOG - 13.11.2024 - by Cristi ●
+● UPDATE LOG - 19.11.2024 - by Cristi ● 
+=
+> [!IMPORTANT]
+> The code has the following known things that do not work and are in progress of being fixed or added
+> 1. The "talk" command for the NPCs are not added yet
+> 2. The "poster" command has an issue that needs to be fixed (Updates* to this will be provided later)
 
+**Things added:**
+- NPC.cs file
+- ItemUse.cs file
+- Choice.cs file
+- Commands that use the new code from the previously mentioned files
+
+**Other small details that will be modified for aesthetic purposes:**
+- the "look" command will have its own function
+- parts of the "choice" will be moved from the Game.cs file later
+
+
+● UPDATE LOG - 13.11.2024 - by Cristi ●
+=
 ## New things added:
   * Reputation level for the player to gain/lose during the game (which will output at the end different messages depending on the reputation score; more details later)
 
