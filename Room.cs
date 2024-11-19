@@ -3,17 +3,24 @@
     public class Room
     {
         public string ShortDescription { get; private set; }
-        public string LongDescription { get; private set;}
-        public Region Area {get; private set;} = new();
+        private string LongDescription { get; set;}
+        private string? Area { get; set;}
+        private Region Region;
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
-        
+        private Choice? RoomChoice { get; set; }
         public Room(string shortDesc, string longDesc, string? region = null)
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
-            Area.Name=region;
+            Area = region;
         }
+        public void PrintDescription(){
+            Console.WriteLine(LongDescription);
+        }
+        public Region FindRegion(){
+            return Region;
+        }  
         public void SetExits(Room? north, Room? east, Room? south, Room? west)
         {
             SetExit("north", north);
@@ -26,7 +33,14 @@
             if (neighbor != null)
                 Exits[direction] = neighbor;
         }
-
+        public Choice roomChoice()
+        {
+            return RoomChoice; 
+        }
+        public void SetterChoice(Choice setter)
+        {
+            RoomChoice = setter;
+        }
         public void AddItem(Item item)
         {
             RoomItems.Add(item);
@@ -55,12 +69,16 @@
             Console.ForegroundColor = ConsoleColor.Yellow;
             if(IsEmpty() == false)
             {
-                Console.WriteLine($"{ShortDescription} has {RoomItems.Count} items:");
+                Console.Write($"You look around and discover that {ShortDescription} has {RoomItems.Count} interesting items such as");
                 foreach(Item item in RoomItems)
-                    Console.WriteLine($"-> {item.Name}");
+                    Console.Write($" {item.Name}");
             }
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
+        }
+        public void SetChoice(Choice choice)
+        {
+            RoomChoice = choice;
         }
     }
 
