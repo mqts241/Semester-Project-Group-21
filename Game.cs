@@ -37,7 +37,18 @@ public class Game
         Room? openPlains = new("Open plains","You arrive at the open plains.\nA big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better.\nAnnoyed by this sight you start following the poachers.", "Afr_Grass");
         Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers.\nEither you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.", "Afr_Grass");
         
+        Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster", "Afr_Grass");
+        Room? tree = new("Tree", "You decided to in the direction of the tree.\nWhile approaching the tree you notice a small wooden board nailed to the tree. A bit further to the west of the tree you also notice a small rangers' hut, with a Jeep next to it.\nYou expect to find some helpful supplies in the hut.", "Afr_Grass");
+        Room? hut = new("Hut", "You entered the hut.\nWhen you entered you looked around and two items fell into your sight.\nFirst, keys for the jeep, which you already saw when coming here. Second, a flare gun, which could come in handy later.", "Afr_Grass");
+        Room? highGrass = new("High Grass", "You are driving into high grass.\nNot long after you start hearing loud sounds of hoofs hitting the ground from the south and you hear humans shouting as well.\nYou should quickly approach the area where the sounds come from.", "Afr_Grass");
+        Room? openPlains = new("Open plains","You arrive at the open plains.\nA big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better.\nAnnoyed by this sight you start following the poachers.", "Afr_Grass");
+        Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers.\nEither you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.", "Afr_Grass");
+        
         // Elephant - 
+        Room? forest = new("Forest", "You arrive in the thick African forest.\nYou find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there.\nMaybe you can find a good place for a poster at the small clearing.", "Afr_For");
+        Room? smallClearing = new("Small Clearing","You reached the small clearing.\nYou see a big tree seems like a good spot for a poster.", "Afr_For");
+        Room? waterhole = new("Waterhole", "You encounter a small waterhole.\nNext to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.", "Afr_For");
+        Room? water = new("Water", "You got near to the water. It looks a bit weird. It seems to be poisoned!", "Afr_For"); 
         Room? forest = new("Forest", "You arrive in the thick African forest.\nYou find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there.\nMaybe you can find a good place for a poster at the small clearing.", "Afr_For");
         Room? smallClearing = new("Small Clearing","You reached the small clearing.\nYou see a big tree seems like a good spot for a poster.", "Afr_For");
         Room? waterhole = new("Waterhole", "You encounter a small waterhole.\nNext to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.", "Afr_For");
@@ -91,6 +102,8 @@ public class Game
             // Forest
             forest.SetExits(null, waterhole, Hub_Africa , smallClearing);
             smallClearing.SetExit("east", forest);
+            waterhole.SetExit("north", water);
+            water.SetExit("south", waterhole);
             waterhole.SetExit("north", water);
             water.SetExit("south", waterhole);
             // Savvanah
