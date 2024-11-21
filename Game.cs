@@ -17,7 +17,7 @@ public class Game
 
             //Africa 
         //Africa_HUB
-        Region Afr = new("Afr");
+        Region Afr = new("Afr", false);
         Room? Hub_Africa = new("Africa Sanctuary", "You are in Africa's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here."); 
 
            //Mountain Forest Rooms
@@ -55,7 +55,7 @@ public class Game
         Room? lion = new("Lion", "You have entered the lion territory.");
 
         //Rhino - North
-        Region Asia = new("Asia");
+        Region Asia = new("Asia", false);
         Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
 
         Region Asia_Grass = new("Asia_Grass");
@@ -304,17 +304,23 @@ public class Game
                         break;
 
                     case "take": //The player takes a specific item from a room
+#pragma warning disable CS8604 // Possible null reference argument.
                         Inventory?.Take(currentRoom, command.SecondWord);
+#pragma warning restore CS8604 // Possible null reference argument.
                         break;
          
                     case "throw": //Player puts an item from the inventory in the current room theyre in
+#pragma warning disable CS8604 // Possible null reference argument.
                         Inventory?.Throw(currentRoom, command.SecondWord);
+#pragma warning restore CS8604 // Possible null reference argument.
                         break;
                                          
                     case "give": //Will be MOVED to the NPC class soon
                         if(Inventory?.IsEmpty() == false)
                         {
+#pragma warning disable CS8604 // Possible null reference argument.
                             Item? a = Inventory.FindItemInInv(command.SecondWord);
+#pragma warning restore CS8604 // Possible null reference argument.
                             if(a != null)
                             {
                                 Console.WriteLine($"You have given your {a.Name} to <NPCname>");
@@ -344,7 +350,9 @@ public class Game
                     break;
                         
                     case "poster":
+#pragma warning disable CS8604 // Possible null reference argument.
                         currentRoom?.FindRegion().SetPosters(Inventory);
+#pragma warning restore CS8604 // Possible null reference argument.
                         Console.ResetColor();
                         break;
 

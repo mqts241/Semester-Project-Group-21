@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > The code has the following known things that do not work and are in progress of being fixed or added
 > 1. The "talk" command for the NPCs are not added yet
-> 2. The "poster" command NOW WORKS
+> 2. The "poster" command NOW WORKS completely
 
 **Things added:**
 - NPC.cs file

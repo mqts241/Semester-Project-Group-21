@@ -3,13 +3,19 @@ namespace WorldOfZuul;
 public class Region{
   private string? Name { get; set; }
   private bool HasPoster { get; set; } = false;
-  public Region(string? name){
+  private bool AllowPoster { get; set; }
+  public Region(string? name, bool allow = true){
     Name = name;
+    AllowPoster = allow;
   }
   public void SetPosters(Inventory inv){
     int maxlenght = 99;
     bool view = true;
-    if(HasPoster == false){
+    if(!AllowPoster){
+      Console.WriteLine("You cannot place a poster here!");
+      return;
+    }
+    if(!HasPoster){
       Console.ForegroundColor = ConsoleColor.Yellow;
       Console.WriteLine("Would you like to place a poster? [Press 'Y' for yes and 'N' for no]");
       switch(Console.ReadKey(true).Key)
@@ -179,9 +185,6 @@ public class Region{
           PrintPosterline(endnote4);PrintPosterline(endnote5);PrintPosterline(endnote6);
           break;
 
-        default:
-          Console.WriteLine("You cannot place a poster in this area!");
-          break;
       }     
       Console.WriteLine($"\t║{new String(' ', maxlenght)}║"); 
       Console.WriteLine($"\t║ ●{new String(' ', maxlenght-4)}● ║");
