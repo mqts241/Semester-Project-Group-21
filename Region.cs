@@ -14,7 +14,7 @@ public class Region{
         case ConsoleKey.Y:
           view=true;
           Console.Write("You have placed the following poster: ");
-          Console.ForegroundColor = ConsoleColor.Green;
+          Console.ForegroundColor = ConsoleColor.Green;     
           Console.Write("(Your reputation has increased by 10)\n\n"); //TO BE DELETED LATER
           HasPoster = true;
           reputation += 10;  //ADDS REPUTATION FOR PLACING A POSTER

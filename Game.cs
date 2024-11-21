@@ -146,6 +146,7 @@ public class Game
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             Hub_Africa.AddItem(item1);
             Villlage_Rhino.AddItem(apple);
+            Market.AddNPC(Fucker);
         }
     
         public void Play()

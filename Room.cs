@@ -7,7 +7,8 @@
         public Region Area {get; private set;} = new();
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
-        
+        private List<NPC> RoomNPC { get; set; } = new();
+
         public Room(string shortDesc, string longDesc, string? region = null)
         {
             ShortDescription = shortDesc;
@@ -61,6 +62,10 @@
             }
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
+        }
+        public void AddNPC(NPC NPC)
+        {
+            RoomNPC.Add(NPC);
         }
     }
 
