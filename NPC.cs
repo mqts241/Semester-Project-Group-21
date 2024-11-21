@@ -14,10 +14,7 @@ public class NPC
     public string T1{get; set;}
     public string? T2{get; set;}
     public string? T3{get; set;}
-<<<<<<< HEAD
-=======
-    public Dictionary<string, NPC> Dialogue { get; set; } = new();
->>>>>>> cristi-unfinalized
+
 
     public NPC(string name,string description, string q1, string? q2, string? q3,string t1, string? t2, string? t3)
     {

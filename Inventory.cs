@@ -2,14 +2,9 @@ namespace WorldOfZuul;
 public class Inventory
 {
   private List<Item?> Items { get; set; } = new();
-<<<<<<< HEAD
-  private const int MaxInventory = 20;                   //SET THE MAXIMUM AMMOUNT OF ITEMS THE PLAYER CAN CARRY IN-GAME
-  
-=======
   private const int MaxInventory = 20;  //SET THE MAXIMUM AMMOUNT OF ITEMS THE PLAYER CAN CARRY IN-GAME
   private int Reputation { get; set; } = 0;
 
->>>>>>> cristi-unfinalized
   public void SeeInventory(){
     if(Items.Count == 0){
       Console.ForegroundColor = ConsoleColor.Yellow;

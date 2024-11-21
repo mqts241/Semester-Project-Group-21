@@ -75,21 +75,12 @@ public class Game
         Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
 
         //Jaguar and where the baby orangutans are
-<<<<<<< HEAD
-        Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?", "Asia_Jungle");
-        Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?", "Asia_Jungle");
-        Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.", "Asia_Jungle");
-        
-        //EPILOGUE
-        Room? Road = new("Road", "As you walk back to your base of operations, you notice car tracks leading north. Perhaps you should follow them.");
-        Room? Camp = new("Camp", "You arrive in a poacher camp, where you notice a caged Amur leopard, one of the rarest species in the world. It should be realeased");
-        Room? Ranger_Hall = new("Ranger Hall", "You are now in the Ranger Hall, a great room, filled with rangers, young and old, here to celebrate your accomplishments. For your deeds, you shall receive a medal and officially become a true defender of nature.");
-=======
         Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
         Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
         Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
->>>>>>> cristi-unfinalized
-
+        Room? Road = new("Road", "As you walk back to your base of operations, you notice car tracks leading north. Perhaps you should follow them.");
+        Room? Camp = new("Camp", "You arrive in a poacher camp, where you notice a caged Amur leopard, one of the rarest species in the world. It should be realeased");
+        Room? Ranger_Hall = new("Ranger Hall", "You are now in the Ranger Hall, a great room, filled with rangers, young and old, here to celebrate your accomplishments. For your deeds, you shall receive a medal and officially become a true defender of nature.");
         Room? testarea = new("Test Area","");
 
         //This is where you set exits
@@ -175,14 +166,16 @@ public class Game
             // Item [name of item] = new("[Name]","[Description]")
             //TEST ITEMS
             Item item1 = new("Item1", "It can be found in the Africa HUB");
-<<<<<<< HEAD
             Item apple = new("Apple", "A big, ripe apple. It would be a good treat for an animal.");
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             Hub_Africa.AddItem(item1);
             Villlage_Rhino.AddItem(apple);
-            Market.AddNPC(Fucker);
-=======
+
+
+            //Market.AddNPC(Fucker); Idk what is this Mihnea, but when you commited this you havent declared the Market as a room.
+
+
             Item Knife = new("Knife", "A sharp knife. Maybe you can cut something with it...");
             
             //ADD ITEMS TO SPECIFIC ROOMS:
@@ -258,7 +251,6 @@ public class Game
 
                 //Add NPC here:
                 NPC Charles = new("Charles", "Some guy from the African village", "Question 1", "Question 2", "Question 3", "Text 1", "Text2", "text3");
->>>>>>> cristi-unfinalized
         }
     
         public void Play()
@@ -397,10 +389,6 @@ public class Game
 
                     case "talk":
                         break;
-                    
-                    case "talk":
-                        
-
                     
                     default:
                         Console.WriteLine("I don't know that command.");

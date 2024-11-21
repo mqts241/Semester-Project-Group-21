@@ -1,4 +1,4 @@
-● UPDATE LOG - 19.11.2024 - by Cristi ● 
+● UPDATE LOG - 21.11.2024 - by Cristi ● 
 =
 > [!IMPORTANT]
 > The code has the following known things that do not work and are in progress of being fixed or added

@@ -80,15 +80,13 @@
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
         }
-<<<<<<< HEAD
         public void AddNPC(NPC NPC)
         {
             RoomNPC.Add(NPC);
-=======
+        }
         public void SetChoice(Choice choice)
         {
             RoomChoice = choice;
->>>>>>> cristi-unfinalized
         }
     }
 
