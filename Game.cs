@@ -119,6 +119,8 @@ public class Game
             smallClearing.SetExit("east", forest);
             waterhole.SetExit("north", water);
             water.SetExit("south", waterhole);
+            waterhole.SetExit("north", water);
+            water.SetExit("south", waterhole);
             // Savvanah
             village_mainroad.SetExits(null, savannah_hub, market, Hub_Africa); // North=HUB, East, South, West
             savannah_hub.SetExits(null, lion, rhino, village_mainroad);
