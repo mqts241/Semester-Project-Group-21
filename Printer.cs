@@ -3,6 +3,7 @@ namespace WorldOfZuul;
 public class Printer{
   public static void PrintWelcome()
   {
+    Console.Clear();
     Console.WriteLine("\n\n\t\t  ____                  _                      ___     ____           _                ");
     Console.WriteLine("\t\t |  _ \\ ___   __ _  ___| |__   ___ _ __ ___   ( _ )   |  _ \\ ___  ___| |_ ___ _ __ ___ ");
     Console.WriteLine("\t\t | |_) / _ \\ / _` |/ __| '_ \\ / _ \\ '__/ __|  / _ \\/\\ | |_) / _ \\/ __| __/ _ \\ '__/ __|");
@@ -20,15 +21,16 @@ public class Printer{
     Console.WriteLine("> Type 'take' to take an item from an area.");
     Console.WriteLine("> Type 'throw' to place an item in an area.");
     Console.WriteLine("> Type 'give' to give an item to someone.");
+    Console.WriteLine("> Type 'use' to use a specific item in an area.");
     Console.WriteLine("> Type 'inventory' or 'inv' to have a list of the items in your inventory.");
     Console.WriteLine("> Type 'poster' to put up a poster in an area.");
     Console.WriteLine("> Type 'quit' to exit the game.\n");
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("(For Debugging) Type 'view' to check the list of items in each room.");
+    Console.WriteLine("> Type 'view' to check the list of items in each room.");
     Console.ResetColor();
   }
   public static void GameOver()
   {
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("\n\n\t\t   ____    _    __  __ _____     _____     _______ ____  ");
     Console.WriteLine("\t\t  / ___|  / \\  |  \\/  | ____|   / _ \\ \\   / / ____|  _ \\ ");
@@ -39,6 +41,7 @@ public class Printer{
   }
   public static void TheEnd()
   {
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.Cyan;
     Console.WriteLine("\n\n\t\t  _____ _              _____           _ ");
     Console.WriteLine("\t\t |_   _| |__   ___    | ____|_ __   __| |");
