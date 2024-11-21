@@ -48,10 +48,10 @@ public class Game
            
         // Savvanah -
         Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.", "Afr_Sav");
-        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. North you will enter the village.", "Afr_Sav");
+        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. In the west you will enter the village.", "Afr_Sav");
         Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.", "Afr_Sav");
         Room? rhino = new("Rhino", "You have entered the rhino territory.", "Afr_Sav");
-        Room? lion = new("Lion", "You have entered the lion territory.", "Afr_Sav");
+        Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.", "Afr_Sav");
 
         //Rhino - North
         Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.", "Asia");
@@ -130,7 +130,7 @@ public class Game
             deeper_cave.SetExit("east",jungle);
 
             //SET THE CURRENT ROOM AS THE STARTING ROOM
-            currentRoom = savannah_hub; 
+            currentRoom = Hub_Africa; 
 
 
             // ITEM ASSIGN TO ROOMS HERE
@@ -138,11 +138,15 @@ public class Game
             // Item [name of item] = new("[Name]","[Description]")
             //TEST ITEMS
             Item item1 = new("Item1", "It can be found in the Africa HUB");
+            Item Knife = new("Knife", "A sharp knife. Maybe you can cut something with it...");
             
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             testarea.AddItem(item1);
+            savannah_hub.AddItem(Knife);
 
+
+            //Decision Room: Action
              List<string> scareOptions = new List<string>
                 {
                     "Use the flare gun",
@@ -189,6 +193,22 @@ public class Game
 
                 Choice neutralizerChoice = new Choice("The water seems to be poisoned will you use the neutralizer or not?",neutralizeOptions, neutralizeResults);
                 water.SetChoice(neutralizerChoice);
+
+                //Decisions Room: Rhino
+                List<string> rhinoOptions = new List<string>
+                {
+                    "Stop the local villagers from cutting the rhinos horn.",
+                    "Don't stop them, because they need the profit from the horn to survive."
+                };
+
+                Dictionary<int, string> rhinoResults = new Dictionary<int, string>
+                {
+                    {1, "You remember someone told you, the villagers don't need to poach for food. Hence you decide to run at the villagers screaming loudly at them. They get scared and run off. You inject an antidote for the rhino and shortly after it wakes up. Great job!"},
+                    {2, "Because you feel pity for the villagers you don't intervene. They cut off the rhinos horn and shortly after it dies. Afterwards you remember someone telling you, the villagers poach for reasons of superstitons. You regret your choice!"}
+                };
+
+                Choice rhinoChoice = new Choice("You see two poachers who stand right next to a tranquilized rhino. They want to cut off its horn. As you move closer, you notice these are people from the village, who probably poach these animals for survival, not for fun or becomming rich. You feel conflicted. Should you intervene or not?", rhinoOptions, rhinoResults);
+                rhino.SetChoice(rhinoChoice);
         }
     
         public void Play()
@@ -318,7 +338,7 @@ public class Game
                     
                     case "use":
                         Inventory?.Use(currentRoom!);
-                    break;
+                        break;
                         
                     case "poster":
                         currentRoom?.FindRegion().SetPosters(Reputation);
