@@ -304,23 +304,17 @@ public class Game
                         break;
 
                     case "take": //The player takes a specific item from a room
-#pragma warning disable CS8604 // Possible null reference argument.
                         Inventory?.Take(currentRoom, command.SecondWord);
-#pragma warning restore CS8604 // Possible null reference argument.
                         break;
          
                     case "throw": //Player puts an item from the inventory in the current room theyre in
-#pragma warning disable CS8604 // Possible null reference argument.
                         Inventory?.Throw(currentRoom, command.SecondWord);
-#pragma warning restore CS8604 // Possible null reference argument.
                         break;
                                          
                     case "give": //Will be MOVED to the NPC class soon
                         if(Inventory?.IsEmpty() == false)
                         {
-#pragma warning disable CS8604 // Possible null reference argument.
                             Item? a = Inventory.FindItemInInv(command.SecondWord);
-#pragma warning restore CS8604 // Possible null reference argument.
                             if(a != null)
                             {
                                 Console.WriteLine($"You have given your {a.Name} to <NPCname>");
@@ -350,9 +344,7 @@ public class Game
                     break;
                         
                     case "poster":
-#pragma warning disable CS8604 // Possible null reference argument.
                         currentRoom?.FindRegion().SetPosters(Inventory);
-#pragma warning restore CS8604 // Possible null reference argument.
                         Console.ResetColor();
                         break;
 
