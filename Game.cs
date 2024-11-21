@@ -9,7 +9,6 @@ public class Game
         private Room? currentRoom;
         private Room? previousRoom;
         private static Inventory Inventory = new();
-        private int Reputation { get; set; } = 0;
         Room? changing_room = new("Changing Room", "A Changing Room, where the Rangers leave their personal belongings and change into their uniform, to begin their duty. There is no one, you arrived late again. >:(");
         Room? operations_center = new("The Operations Center", "Welcome to your main office, where you get the missions intel from your Ranger Chief, it seems that there is no one, but they left the official poster with the assigned shifts and tasks.");
         Room? training_room = new("The Training Room", "Where new recruits prove their worth for ranger duty, it is primary protocol to conduct a skills check before beginning each mission.");
@@ -18,66 +17,90 @@ public class Game
 
             //Africa 
         //Africa_HUB
-        Room? Hub_Africa = new("Africa Sanctuary", "You are in Africa's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.", "Afr");
+        Region Afr = new("Afr", false);
+        Room? Hub_Africa = new("Africa Sanctuary", "You are in Africa's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here."); 
 
            //Mountain Forest Rooms
-        Room? mountain_forest_path = new("Mountain Forest Path","You find yourself walking along the main path of the mountain forest, the air is fresh and humed, to the North, a remarkable building is on sight, the national sanctuary for protection and reproduction of mountain gorillas, the sancturary stands as a testament to conservation efforts, settled among the dense mountain forest foliage and rugged terrain.", "Afr_Mf");
-        Room? sanctuary = new("The Sanctuary", "As you step inside the sanctuary, you notice a spacious hall, filled with informative displays, strangely there is no one around, to the West of the hallway, the Rangers Office, where the local ranger ensures the safety of the sanctuary, and protects the local life from human interference, on the East side of the Hallway, you find the mountain gorillas enclosure, a cerefully designed habitat with all their required needs for their optimal development and life.", "Afr_Mf");
-        Room? rangers_office = new("The Rangers Office", "Once inside the rangers office, the local ranger is nowhere to be found, you find a cluttered space filled with muddy boots, maps and conversation reports, there is a coffee cup in the edge of the table, its cold, it seems that the ranger ran out of the office for some reason.", "Afr_Mf");
-        Room? enclosure = new("The Enclosure", "The mountain gorillas enclosure is surprisingly empty, to the North, the air feels tense, marked by a huge breach  in the enclosures wall leading to the outside forest, broken branches hint at a hurried escape, the silence adds a mistery to the situation", "Afr_Mf");
-        Room? mountain_forest = new("Forest", "The dense forest outside the breached wall feels with tension, sad moaning echoing from the East, your tracker picks up a signal from that direction, while two other signals pull your attention to West, deeper into the forest. Every step must be taken with caution.", "Afr_Mf");
-        Room? trap = new("The Trap", "You find a trapped, bleeding adult male gorilla. He's scared and looks distrustful towards you, unable to escape the trap. His moans fill the air, adding to the urgency of the moment.", "Afr_Mf");
-        Room? hideout = new("The Hideout", "Between the bushes, you finally find the source of the signal, a big jail trailer loaded with an adult and 2 young gorillas trapped, you spot the poachers at the distance, loading stuff and getting ready to leave with their capture, the time is ticking, you must do something.", "Afr_Mf");
+        Region Afr_Mf = new("Afr_Mf");
+        Room? mountain_forest_path = new("Mountain Forest Path","You find yourself walking along the main path of the mountain forest, the air is fresh and humed, to the North, a remarkable building is on sight, the national sanctuary for protection and reproduction of mountain gorillas, the sancturary stands as a testament to conservation efforts, settled among the dense mountain forest foliage and rugged terrain.");
+        Room? sanctuary = new("The Sanctuary", "As you step inside the sanctuary, you notice a spacious hall, filled with informative displays, strangely there is no one around, to the West of the hallway, the Rangers Office, where the local ranger ensures the safety of the sanctuary, and protects the local life from human interference, on the East side of the Hallway, you find the mountain gorillas enclosure, a cerefully designed habitat with all their required needs for their optimal development and life.");
+        Room? rangers_office = new("The Rangers Office", "Once inside the rangers office, the local ranger is nowhere to be found, you find a cluttered space filled with muddy boots, maps and conversation reports, there is a coffee cup in the edge of the table, its cold, it seems that the ranger ran out of the office for some reason.");
+        Room? enclosure = new("The Enclosure", "The mountain gorillas enclosure is surprisingly empty, to the North, the air feels tense, marked by a huge breach  in the enclosures wall leading to the outside forest, broken branches hint at a hurried escape, the silence adds a mistery to the situation");
+        Room? mountain_forest = new("Forest", "The dense forest outside the breached wall feels with tension, sad moaning echoing from the East, your tracker picks up a signal from that direction, while two other signals pull your attention to West, deeper into the forest. Every step must be taken with caution.");
+        Room? trap = new("The Trap", "You find a trapped, bleeding adult male gorilla. He's scared and looks distrustful towards you, unable to escape the trap. His moans fill the air, adding to the urgency of the moment.");
+        Room? hideout = new("The Hideout", "Between the bushes, you finally find the source of the signal, a big jail trailer loaded with an adult and 2 young gorillas trapped, you spot the poachers at the distance, loading stuff and getting ready to leave with their capture, the time is ticking, you must do something.");
 
-        // Zebra -
-        Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster", "Afr_Grass");
-        Room? tree = new("Tree", "You decided to in the direction of the tree.\nWhile approaching the tree you notice a small wooden board nailed to the tree. A bit further to the west of the tree you also notice a small rangers' hut, with a Jeep next to it.\nYou expect to find some helpful supplies in the hut.", "Afr_Grass");
-        Room? hut = new("Hut", "You entered the hut.\nWhen you entered you looked around and two items fell into your sight.\nFirst, keys for the jeep, which you already saw when coming here. Second, a flare gun, which could come in handy later.", "Afr_Grass");
-        Room? highGrass = new("High Grass", "You are driving into high grass.\nNot long after you start hearing loud sounds of hoofs hitting the ground from the south and you hear humans shouting as well.\nYou should quickly approach the area where the sounds come from.", "Afr_Grass");
-        Room? openPlains = new("Open plains","You arrive at the open plains.\nA big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better.\nAnnoyed by this sight you start following the poachers.", "Afr_Grass");
-        Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers.\nEither you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.", "Afr_Grass");
-        
-       
+        // Zebra 
+        Region Afr_Grass = new("Afr_Grass");
+        Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster");
+        Room? tree = new("Tree", "You decided to in the direction of the tree.\nWhile approaching the tree you notice a small wooden board nailed to the tree. A bit further to the west of the tree you also notice a small rangers' hut, with a Jeep next to it.\nYou expect to find some helpful supplies in the hut.");
+        Room? hut = new("Hut", "You entered the hut.\nWhen you entered you looked around and two items fell into your sight.\nFirst, keys for the jeep, which you already saw when coming here. Second, a flare gun, which could come in handy later.");
+        Room? highGrass = new("High Grass", "You are driving into high grass.\nNot long after you start hearing loud sounds of hoofs hitting the ground from the south and you hear humans shouting as well.\nYou should quickly approach the area where the sounds come from.");
+        Room? openPlains = new("Open plains","You arrive at the open plains.\nA big herd a zebra, is being chased by a jeep filled with poachers. The poachers know no shame and yell around to drive the zebras to exhaustion, so that they can hunt them better.\nAnnoyed by this sight you start following the poachers.");
+        Room? action = new("Action", "While approaching the poachers you have two options in mind to scare away the poachers.\nEither you use the flare gun you brought with you, or you try to approach them to scare them with your presence and words.");
         
         // Elephant - 
-        Room? forest = new("Forest", "You arrive in the thick African forest.\nYou find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there.\nMaybe you can find a good place for a poster at the small clearing.", "Afr_For");
-        Room? smallClearing = new("Small Clearing","You reached the small clearing.\nYou see a big tree seems like a good spot for a poster.", "Afr_For");
-        Room? waterhole = new("Waterhole", "You encounter a small waterhole.\nNext to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.", "Afr_For");
-        Room? water = new("Water", "You got near to the water. It looks a bit weird. It seems to be poisoned!", "Afr_For"); 
-       
+        Region Afr_For = new("Afr_For");
+        Room? forest = new("Forest", "You arrive in the thick African forest.\nYou find two paths. One of the paths leads to the south where you can see a small clearing. The other one leads to the east you can't see much there.\nMaybe you can find a good place for a poster at the small clearing.");
+        Room? smallClearing = new("Small Clearing","You reached the small clearing.\nYou see a big tree seems like a good spot for a poster.");
+        Room? waterhole = new("Waterhole", "You encounter a small waterhole.\nNext to the waterhole you see an elephant lying on the ground, something seems to be wrong with it.");
+        Room? water = new("Water", "You got near to the water. It looks a bit weird. It seems to be poisoned!");
            
-        // Savvanah -
-        Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.", "Afr_Sav");
-        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. In the west you will enter the village.", "Afr_Sav");
-        Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.", "Afr_Sav");
-        Room? rhino = new("Rhino", "You have entered the rhino territory.", "Afr_Sav");
-        Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.", "Afr_Sav");
+        // Savvanah 
+        Region Afr_Sav = new("Afr_Sav");
+        Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.");
+        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. In the West you will enter the village.");
+        Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
+        Room? rhino = new("Rhino", "You have entered the rhino territory.");
+        Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.");
 
         //Rhino - North
-        Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.", "Asia");
-        Room? Villlage_Rhino = new("Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.", "Asia_Grass");
-        Room? Rhino_Room = new("Grasslands", "You have arrived in the rhino's territory. You notice the poachers have been here, by the tire tracks in the mud and different items discarded in the grass.The old rhino is lying on the ground under a great tree, looking scared.", "Asia_Grass");
+        Region Asia = new("Asia", false);
+        Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
+
+        Region Asia_Grass = new("Asia_Grass");
+        Room? Villlage_Rhino = new("Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.");
+        Room? Rhino_Room = new("Grasslands", "You have arrived in the rhino's territory. You notice the poachers have been here, by the tire tracks in the mud and different items discarded in the grass.The old rhino is lying on the ground under a great tree, looking scared.");
             
         //Tiger - East 
-        Room? Ranger_Meeting = new("Edge of the Swap", "You have arrived at the edge of the swamp, where you notice an old ranger looking worried towards the marshes.", "Asia_Swamp");
-        Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track", "Asia_Swamp");
-        Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.", "Asia_Swamp");
-        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. You also notice a notebook, dropped into the water, slowly sinking. It is time to make a choice.", "Asia_Swamp");
+        Region Asia_Swamp = new("Asia_Swamp");
+        Room? Ranger_Meeting = new("Edge of the Swap", "You have arrived at the edge of the swamp, where you notice an old ranger looking worried towards the marshes.");
+        Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
+        Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
+        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. You also notice a notebook, dropped into the water, slowly sinking. It is time to make a choice.");
 
         //Ourangutans
-        Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.", "Asia_Jungle");
-        Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.", "Asia_Jungle");
+        Region Asia_Jungle = new("Asia_Jungle");
+        Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.");
+        Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
 
         //Jaguar and where the baby orangutans are
-        Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?", "Asia_Jungle");
-        Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?", "Asia_Jungle");
-        Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.", "Asia_Jungle");
+        Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
+        Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
+        Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
 
-        Room? testarea = new("Test Area","","TestArea");
+        Room? testarea = new("Test Area","");
 
         //This is where you set exits
         public Game()
         {
+            Hub_Africa.SetRoomRegion(Afr);
+            mountain_forest_path.SetRoomRegion(Afr_Mf);sanctuary.SetRoomRegion(Afr_Mf);
+            rangers_office.SetRoomRegion(Afr_Mf);enclosure.SetRoomRegion(Afr_Mf);
+            mountain_forest.SetRoomRegion(Afr_Mf);trap.SetRoomRegion(Afr_Mf);hideout.SetRoomRegion(Afr_Mf);
+            grassland.SetRoomRegion(Afr_Grass);tree.SetRoomRegion(Afr_Grass); hut.SetRoomRegion(Afr_Grass);
+            highGrass.SetRoomRegion(Afr_Grass);openPlains.SetRoomRegion(Afr_Grass);action.SetRoomRegion(Afr_Grass);
+            forest.SetRoomRegion(Afr_For);smallClearing.SetRoomRegion(Afr_For);
+            waterhole.SetRoomRegion(Afr_For);water.SetRoomRegion(Afr_For); 
+            village_mainroad.SetRoomRegion(Afr_Sav);savannah_hub.SetRoomRegion(Afr_Sav); 
+            market.SetRoomRegion(Afr_Sav);rhino.SetRoomRegion(Afr_Sav);lion.SetRoomRegion(Afr_Sav);
+            Hub_Asia.SetRoomRegion(Asia);
+            Villlage_Rhino.SetRoomRegion(Asia_Grass);Rhino_Room.SetRoomRegion(Asia_Grass);
+            Ranger_Meeting.SetRoomRegion(Asia_Swamp);Marsh1.SetRoomRegion(Asia_Swamp);
+            Marsh2.SetRoomRegion(Asia_Swamp);Marsh_Tiger.SetRoomRegion(Asia_Swamp);
+            jungle.SetRoomRegion(Asia_Jungle);orangutans.SetRoomRegion(Asia_Jungle);cave.SetRoomRegion(Asia_Jungle);
+            cave_entrance.SetRoomRegion(Asia_Jungle);deeper_cave.SetRoomRegion(Asia_Jungle);
+
             changing_room.SetExit("east", operations_center);
             operations_center.SetExits(training_room, transfer_station, Hub_Africa, changing_room); 
                                   //⬍⬍ North,         East,             South,     West ⬍
@@ -288,7 +311,7 @@ public class Game
                     case "quit":
                         continuePlaying = false;
                         Printer.GameOver();
-                        Printer.ExitMessage(Reputation);
+                        Printer.ExitMessage(Inventory.Rep());
                         break;
 
                     case "commands":
@@ -299,7 +322,7 @@ public class Game
                     case "inventory": //Self-explanitory I presume
                     case "inv":
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"Your reputation is: {Reputation}");
+                        Console.WriteLine($"Your reputation is: {Inventory.Rep()}");
                         Console.ResetColor();
                         Inventory?.SeeInventory();
                         break;
@@ -345,7 +368,7 @@ public class Game
                         break;
                         
                     case "poster":
-                        currentRoom?.FindRegion().SetPosters(Reputation);
+                        currentRoom?.FindRegion().SetPosters(Inventory);
                         Console.ResetColor();
                         break;
 

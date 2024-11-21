@@ -4,16 +4,17 @@
     {
         public string ShortDescription { get; private set; }
         private string LongDescription { get; set;}
-        private string? Area { get; set;}
-        private Region Region;
+        private Region? Region { get; set; }
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
         private Choice? RoomChoice { get; set; }
-        public Room(string shortDesc, string longDesc, string? region = null)
+        public Room(string shortDesc, string longDesc)
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
-            Area = region;
+        }
+        public void SetRoomRegion(Region reg){
+            Region = reg;
         }
         public void PrintDescription(){
             Console.WriteLine(LongDescription);
