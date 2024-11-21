@@ -209,6 +209,10 @@ public class Game
 
                 Choice rhinoChoice = new Choice("You see two poachers who stand right next to a tranquilized rhino. They want to cut off its horn. As you move closer, you notice these are people from the village, who probably poach these animals for survival, not for fun or becomming rich. You feel conflicted. Should you intervene or not?", rhinoOptions, rhinoResults);
                 rhino.SetChoice(rhinoChoice);
+
+
+                //Add NPC here:
+                NPC Charles = new("Charles", "Some guy from the African village", "Question 1", "Question 2", "Question 3", "Text 1", "Text2", "text3");
         }
     
         public void Play()
