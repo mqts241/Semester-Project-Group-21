@@ -3,6 +3,7 @@ public class Inventory
 {
   private List<Item?> Items { get; set; } = new();
   private const int MaxInventory = 20;  //SET THE MAXIMUM AMMOUNT OF ITEMS THE PLAYER CAN CARRY IN-GAME
+  private int Reputation { get; set; } = 0;
   public void SeeInventory(){
     if(Items.Count == 0){
       Console.ForegroundColor = ConsoleColor.Yellow;
@@ -157,5 +158,11 @@ public class Inventory
         Console.ResetColor();
       }
     }
+  }
+  public int Rep(){
+    return Reputation;
+  }
+  public void ChangeRep(int value){
+    Reputation += value;
   }
 }
