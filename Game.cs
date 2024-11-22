@@ -92,7 +92,7 @@ namespace WorldOfZuul
             Hub_Africa.SetExits(forest, village_mainroad, grassland, mountain_forest_path);
            
             // Grasslands
-            grassland.SetExits(null, null, highGrass, tree);
+            grassland.SetExits(Hub_Africa, null, highGrass, tree);
 
             tree.SetExits(null, grassland, null, hut);
 
@@ -185,9 +185,9 @@ namespace WorldOfZuul
                 Console.WriteLine(currentRoom?.ShortDescription);
                 Console.Write("> ");
 
-                string? input = Console.ReadLine();
+                string? input = Console.ReadLine(); //reads player input
 
-                if (string.IsNullOrEmpty(input))
+                if (string.IsNullOrEmpty(input)) //checks for empty line input
                 {
                     Console.WriteLine("Please enter a command.");
                     continue;
