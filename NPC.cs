@@ -1,5 +1,6 @@
 using System.Dynamic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WorldOfZuul;
@@ -29,23 +30,27 @@ public class NPC
     }
 
     public void TalkNPC()
-    {
+    {   
         Console.WriteLine("1. ", Q1 );
         Console.WriteLine("2. ", Q2 );
         Console.WriteLine("3. ", Q2 );
 
     }
-    public void Case1()
+    public void Case1(NPC npc)
     {
-        Console.WriteLine(T1);
+        Console.WriteLine(npc.T1);
     }
-    public void Case2()
+    public void Case2(NPC npc)
     {
-        Console.WriteLine(T2);
+        Console.WriteLine(npc.T2);
     }
-    public void Case3()
+    public void Case3(NPC npc)
     {
-        Console.WriteLine(T3);
+        Console.WriteLine(npc.T3);
+    }
+    public void AddNPC(Room  room, NPC npc)
+    {
+         room.RoomNPC=npc;
     }
 
 
