@@ -111,12 +111,8 @@ public class Game
                 //Africa
             Hub_Africa.SetExits(forest, village_mainroad, grassland, mountain_forest_path);
             // Grasslands
-<<<<<<< HEAD
             grassland.SetExits(Hub_Africa, null, highGrass, tree);
 
-=======
-            grassland.SetExits(null, null, highGrass, tree);
->>>>>>> a3566a19bbfe5b0a0b0535965ee9049eecc1d27d
             tree.SetExits(null, grassland, null, hut);
             hut.SetExit("east", tree);
             highGrass.SetExit("south", openPlains);
@@ -256,6 +252,7 @@ public class Game
 
                 //Add NPC here:
                 NPC Charles = new("Charles", "Some guy from the African village", "Question 1", "Question 2", "Question 3", "Text 1", "Text2", "text3");
+                market.AddNPC(Charles);
         }
     
         public void Play()

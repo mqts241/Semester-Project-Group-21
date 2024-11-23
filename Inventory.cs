@@ -133,6 +133,7 @@ public class Inventory
           Console.WriteLine($"You use {selectedItem?.Name}"); //Shows the name of the selected item
           Console.ResetColor();
           ItemUse itemUse = new(currentRoom);
+          ChangeRep(10);
 
           if(itemUse.CanUseItem(selectedItem!)){
             itemUse.UseItemResult(selectedItem!);
