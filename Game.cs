@@ -388,7 +388,23 @@ public class Game
                         break;
 
                     case "talk":
+                        {
+                            currentRoom.RoomNPC.TalkNPC();
+                            switch(Console.ReadKey(true).Key)
+                            {
+                                case ConsoleKey.NumPad1:
+                                currentRoom.RoomNPC.Case1();
+                                break;
+                                 case ConsoleKey.NumPad2:
+                                currentRoom.RoomNPC.Case2();
+                                break;
+                                 case ConsoleKey.NumPad3:
+                                currentRoom.RoomNPC.Case3();
+                                break;
+                            }
+                        }
                         break;
+                        
                     
                     default:
                         Console.WriteLine("I don't know that command.");
