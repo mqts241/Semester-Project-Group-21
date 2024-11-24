@@ -252,7 +252,7 @@ public class Game
 
                 //Add NPC here:
                 NPC Charles = new("Charles", "Some guy from the African village", "Question 1", "Question 2", "Question 3", "Text 1", "Text2", "text3");
-                market.AddNPC(Charles);
+                
         }
     
         public void Play()
