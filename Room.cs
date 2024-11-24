@@ -7,7 +7,7 @@
         private Region? Region { get; set; }
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
-        private List<NPC> RoomNPC { get; set; } = new();
+        public NPC RoomNPC { get; set; } 
 
         
         private Choice? RoomChoice { get; set; }
@@ -79,10 +79,6 @@
             }
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
-        }
-        public void AddNPC(NPC NPC)
-        {
-            RoomNPC.Add(NPC);
         }
         public void SetChoice(Choice choice)
         {
