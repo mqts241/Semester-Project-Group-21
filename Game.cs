@@ -251,8 +251,8 @@ public class Game
 
 
                 //Add NPC here:
-                NPC Charles = new("Charles", "Some guy from the African village", "Question 1", "Question 2", "Question 3", "Text 1", "Text2", "text3");
-                
+                NPC Charles = new("Charles", "Some guy from the African village", "Wealth", "Supersitions", "Lion", "Our village is quite wealthy, we never need to kill animals for food.", "My sons went out to hunt rhinos because we believe there ivory has mystic powers.", "Why did the lion eat the tightrope walker? Because he wanted a well-balanced meal! HAHAHA!");
+                market.RoomNPC = Charles;
         }
     
         public void Play()
@@ -391,17 +391,17 @@ public class Game
 
                     case "talk":
                         {
-                            currentRoom.RoomNPC.TalkNPC();
+                            currentRoom?.RoomNPC.TalkNPC();
                             switch(Console.ReadKey(true).Key)
                             {
-                                case ConsoleKey.NumPad1:
-                                currentRoom.RoomNPC.Case1();
+                                case ConsoleKey.D1:
+                                currentRoom?.RoomNPC.Case1();
                                 break;
-                                 case ConsoleKey.NumPad2:
-                                currentRoom.RoomNPC.Case2();
+                                 case ConsoleKey.D2:
+                                currentRoom?.RoomNPC.Case2();
                                 break;
-                                 case ConsoleKey.NumPad3:
-                                currentRoom.RoomNPC.Case3();
+                                 case ConsoleKey.D3:
+                                currentRoom?.RoomNPC.Case3();
                                 break;
                             }
                         }

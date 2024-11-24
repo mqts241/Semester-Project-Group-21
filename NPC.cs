@@ -30,9 +30,9 @@ public class NPC
 
     public void TalkNPC()
     {
-        Console.WriteLine("1. ", Q1 );
-        Console.WriteLine("2. ", Q2 );
-        Console.WriteLine("3. ", Q2 );
+        Console.WriteLine("1. " + Q1 );
+        Console.WriteLine("2. " + Q2 );
+        Console.WriteLine("3. " + Q3 );
 
     }
     public void Case1()
