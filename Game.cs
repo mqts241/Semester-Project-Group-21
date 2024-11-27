@@ -159,7 +159,7 @@ public class Game
             Camp.SetExits(null, null, Ranger_Hall, null);
 
             //SET THE CURRENT ROOM AS THE STARTING ROOM
-            currentRoom = Hub_Africa; 
+            currentRoom = testarea; 
 
 
             // ITEM ASSIGN TO ROOMS HERE
@@ -253,6 +253,10 @@ public class Game
                 //Add NPC here:
                 NPC Charles = new("Charles", "Some guy from the African village", "Wealth", "Supersitions", "Lion", "Our village is quite wealthy, we never need to kill animals for food.", "My sons went out to hunt rhinos because we believe there ivory has mystic powers.", "Why did the lion eat the tightrope walker? Because he wanted a well-balanced meal! HAHAHA!");
                 market.RoomNPC = Charles;
+
+                //Add Chance instances here:
+                Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
+                testarea.RoomChance = test;
         }
     
         public void Play()
@@ -406,6 +410,12 @@ public class Game
                             }
                         }
                         break;
+
+                    case "chance":
+                        {
+                            currentRoom?.RoomChance.ThrowDice();
+                            break;
+                        }
                         
                     
                     default:

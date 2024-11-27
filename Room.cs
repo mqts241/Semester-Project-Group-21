@@ -8,6 +8,7 @@
         public Dictionary<string, Room> Exits { get; private set; } = new();
         private List<Item> RoomItems { get; set; } = new(); 
         public NPC RoomNPC { get; set; } 
+        public Chance RoomChance { get; set; }
 
         
         private Choice? RoomChoice { get; set; }
