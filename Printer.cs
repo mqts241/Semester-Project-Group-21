@@ -26,6 +26,7 @@ public class Printer{
     Console.WriteLine("> Type 'poster' to put up a poster in an area.");
     Console.WriteLine("> Type 'quit' to exit the game.\n");
     Console.WriteLine("> Type 'view' to check the list of items in each room.");
+    Console.WriteLine("> Type 'chance' to try your luck.");
     Console.ResetColor();
   }
   public static void GameOver()

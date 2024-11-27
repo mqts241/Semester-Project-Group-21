@@ -1,4 +1,5 @@
 using System.Dynamic;
+using System.Threading; //Adds a delay between Console.WriteLines()
 
 namespace WorldOfZuul;
 
@@ -18,20 +19,31 @@ public class Chance
 
     public void ThrowDice()
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(PerformedAction); //initial line describing the action the player performs
+        Thread.Sleep(1000);
+        for (int i = 0; i<3 ; i++)
+        {
+            Console.Write(".");
+            Thread.Sleep(1000); //Delay for 1000ms
+        }
+        Console.WriteLine("");  //Add an empty line
         Random random = new();
         int randomNumber = random.Next(1, 3); // Generates a number between 1 and 2
-        Console.WriteLine(randomNumber); // This should be removed later -> Only show outcome
 
         switch (randomNumber) // Differnt scenarios for the action performed (e.g. Ranger throwing his knife)
         {
             case 1:
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(TheBadEnding);
                 //Bad case: Subract from the over all score (-1 or something)
+                Console.ResetColor();
                 break;
             case 2:
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(TheGoodEnding);
                 //Good case: Add score to the final score (+1 or something)
+                Console.ResetColor();
                 break;
         }
     }
