@@ -38,12 +38,14 @@ public class Chance
                 Console.WriteLine(TheBadEnding);
                 //Bad case: Subract from the over all score (-1 or something)
                 Console.ResetColor();
+                Thread.Sleep(2000);
                 break;
             case 2:
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(TheGoodEnding);
                 //Good case: Add score to the final score (+1 or something)
                 Console.ResetColor();
+                Thread.Sleep(2000);
                 break;
         }
     }

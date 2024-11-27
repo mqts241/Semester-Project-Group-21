@@ -414,6 +414,7 @@ public class Game
                     case "chance":
                         {
                             currentRoom?.RoomChance.ThrowDice();
+                            Console.Clear();
                             break;
                         }
                         
