@@ -59,7 +59,7 @@ public class Game
         Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
 
         Region Asia_Grass = new("Asia_Grass");
-        Room? Villlage_Rhino = new("Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.");
+        Room? Villlage_Rhino = new("Rhino Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.");
         Room? Rhino_Room = new("Grasslands", "You have arrived in the rhino's territory. You notice the poachers have been here, by the tire tracks in the mud and different items discarded in the grass.The old rhino is lying on the ground under a great tree, looking scared.");
             
         //Tiger - East 
@@ -67,7 +67,7 @@ public class Game
         Room? Ranger_Meeting = new("Edge of the Swap", "You have arrived at the edge of the swamp, where you notice an old ranger looking worried towards the marshes.");
         Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
         Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
-        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. You also notice a notebook, dropped into the water, slowly sinking. It is time to make a choice.");
+        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. ");
 
         //Ourangutans
         Region Asia_Jungle = new("Asia_Jungle");
@@ -167,23 +167,19 @@ public class Game
             // Item [name of item] = new("[Name]","[Description]")
             //TEST ITEMS
             Item item1 = new("Item1", "It can be found in the Africa HUB");
-            Item apple = new("Apple", "A big, ripe apple. It would be a good treat for an animal.");
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             Hub_Africa.AddItem(item1);
-            Villlage_Rhino.AddItem(apple);
-
-
-            //Market.AddNPC(Fucker); Idk what is this Mihnea, but when you commited this you havent declared the Market as a room.
-
+            
 
             Item Knife = new("Knife", "A sharp knife. Maybe you can cut something with it...");
+            Item apple = new("Apple", "A big, ripe apple. It would be a good treat for an animal.");
             
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             testarea.AddItem(item1);
             savannah_hub.AddItem(Knife);
-
+            Villlage_Rhino.AddItem(apple);
 
             //Decision Room: Action
              List<string> scareOptions = new List<string>
@@ -249,15 +245,35 @@ public class Game
                 Choice rhinoChoice = new Choice("You see two poachers who stand right next to a tranquilized rhino. They want to cut off its horn. As you move closer, you notice these are people from the village, who probably poach these animals for survival, not for fun or becomming rich. You feel conflicted. Should you intervene or not?", rhinoOptions, rhinoResults);
                 rhino.SetChoice(rhinoChoice);
 
+                 //Decisions Room: Tiger
+                List<string> tigerOptions = new List<string>
+                {
+                    "Quickly saved the trapped tiger.",
+                    "Go for the poacher's notebook before it sinks"
+                };
+
+                Dictionary<int, string> tigerResults = new Dictionary<int, string>
+                {
+                    {1, "The tiger is saved, he looks at you, then jumps back towards the deep marsh. You are sure there was nothing useful in the notebook anyway"},
+                    {2, "You quickly dash and get the notebook. You quickly notice it is not readable due to the mud and water. After this, you save the tiger, which apprears maimed due to the time it was trapped. Regrets overwhelm you."}
+                };
+
+                Choice tigerChoice = new Choice("You notice the trapped tiger and the sinking notebook. Which one do you go for the first?", tigerOptions, tigerResults);
+                rhino.SetChoice(rhinoChoice);
+
 
                 //Add NPC here:
                 NPC Charles = new("Charles", "Some guy from the African village", "Wealth", "Supersitions", "Lion", "Our village is quite wealthy, we never need to kill animals for food.", "My sons went out to hunt rhinos because we believe there ivory has mystic powers.", "Why did the lion eat the tightrope walker? Because he wanted a well-balanced meal! HAHAHA!");
                 market.RoomNPC = Charles;
 
+                NPC Elder = new("Elder","A Village Elder","Rhino","Enviroment","Poaching", "There is an old Rhino ahead of this village. When the poachers came, they scared him. He is now very aggresive, help him please.", "This is one of the places where humans didn't get to destroy the world around them", "Poachers have been seen around this village many times, hunting the old rhino for his horn. Someone must put a stop to them." );
+                Villlage_Rhino.RoomNPC = Elder;
+
+                NPC Ranger = new("Old Ranger", "An old, tired looking ranger", "The tigers", "The swamps",null, "The tigers in this swamp are magnificent creatures. They are rare and mostly run away from humans, but the poachers still try to find them. Try going after the hunters, please. I am too old for this...", "Take care when you go in the swamp. Maybe try to stick to the same direction, it might help. Good luck!", null);
                 //Add Chance instances here:
                 Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
                 testarea.RoomChance = test;
-        }
+        } 
     
         public void Play()
         {

@@ -32,6 +32,14 @@ public class ItemUse(Room room)
             Console.ResetColor();
             //Add any Aditional actions that will occur when Item1 is used
         }
+        if(item.Name == "apple" && currentRoom.ShortDescription == "Rhino Village")
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("The rhino accepts the apple and calms down. He will no longer be a danger to humans");
+            
+            Console.ResetColor();
+            //Add any Aditional actions that will occur when Item1 is used
+        }
 
         else
         {

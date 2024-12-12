@@ -31,8 +31,8 @@ public class NPC
     public void TalkNPC()
     {
         Console.WriteLine("1. " + Q1 );
-        Console.WriteLine("2. " + Q2 );
-        Console.WriteLine("3. " + Q3 );
+        if (Q2!=null) Console.WriteLine("2. " + Q2 );
+        if (Q3!=null) Console.WriteLine("3. " + Q3 );
 
     }
     public void Case1()
@@ -41,11 +41,11 @@ public class NPC
     }
     public void Case2()
     {
-        Console.WriteLine(T2);
+        if (T2!=null) Console.WriteLine(T2);
     }
     public void Case3()
     {
-        Console.WriteLine(T3);
+        if (T3!=null) Console.WriteLine(T3);
     }
 
 
