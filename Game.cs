@@ -159,7 +159,7 @@ public class Game
             Camp.SetExits(null, null, Ranger_Hall, null);
 
             //SET THE CURRENT ROOM AS THE STARTING ROOM
-            currentRoom = testarea; 
+            currentRoom = market; 
 
 
             // ITEM ASSIGN TO ROOMS HERE
@@ -273,6 +273,8 @@ public class Game
                 //Add Chance instances here:
                 Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
                 testarea.RoomChance = test;
+                Chance test2 = new("You play the game machine", "You are not good at video games and so you lose", "Hoorray, it's your lucky day. You win!");
+                market.RoomChance = test2;
         } 
     
         public void Play()
