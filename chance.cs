@@ -7,7 +7,7 @@ public class Chance
 {
     public string PerformedAction {get; private set;}
     public string TheGoodEnding {get; private set;} //Good outcome, e.g. you throw knife and hit your target
-    public string TheBadEnding {get; private set;} //You fucking suck
+    public string TheBadEnding {get; private set;} //Bad outcome, e.g. you miss your throw
 
     public Chance(string performedAction, string thebadending, string thegoodending)
     {
