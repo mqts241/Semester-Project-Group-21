@@ -1,12 +1,21 @@
 namespace WorldOfZuul;
 
 public class Region{
-  public string? Name { get; set; }
+  private string? Name { get; set; }
   private bool HasPoster { get; set; } = false;
-  public void SetPosters(int reputation){
+  private bool AllowPoster { get; set; }
+  public Region(string? name, bool allow = true){
+    Name = name;
+    AllowPoster = allow;
+  }
+  public void SetPosters(Inventory inv){
     int maxlenght = 99;
     bool view = true;
-    if(HasPoster == false){
+    if(!AllowPoster){
+      Console.WriteLine("You cannot place a poster here!");
+      return;
+    }
+    if(!HasPoster){
       Console.ForegroundColor = ConsoleColor.Yellow;
       Console.WriteLine("Would you like to place a poster? [Press 'Y' for yes and 'N' for no]");
       switch(Console.ReadKey(true).Key)
@@ -14,10 +23,10 @@ public class Region{
         case ConsoleKey.Y:
           view=true;
           Console.Write("You have placed the following poster: ");
-          Console.ForegroundColor = ConsoleColor.Green;
+          Console.ForegroundColor = ConsoleColor.Green;     
           Console.Write("(Your reputation has increased by 10)\n\n"); //TO BE DELETED LATER
           HasPoster = true;
-          reputation += 10;  //ADDS REPUTATION FOR PLACING A POSTER
+          inv.ChangeRep(10); //ADDS REPUTATION FOR PLACING A POSTER
           break;
         case ConsoleKey.N:
           view = false;
@@ -175,6 +184,7 @@ public class Region{
           PrintPosterline(subtitle2);PrintPosterline(endnote1);PrintPosterline(endnote2);PrintPosterline(endnote3);
           PrintPosterline(endnote4);PrintPosterline(endnote5);PrintPosterline(endnote6);
           break;
+
       }     
       Console.WriteLine($"\t║{new String(' ', maxlenght)}║"); 
       Console.WriteLine($"\t║ ●{new String(' ', maxlenght-4)}● ║");

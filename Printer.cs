@@ -1,8 +1,11 @@
+using System.Transactions;
+
 namespace WorldOfZuul;
 // THIS PRINTER WILL PRINT OUT OUR TEXT SO THAT IT DOES NOT CLOG THE GAME.CS FILE
 public class Printer{
   public static void PrintWelcome()
   {
+    Console.Clear();
     Console.WriteLine("\n\n\t\t  ____                  _                      ___     ____           _                ");
     Console.WriteLine("\t\t |  _ \\ ___   __ _  ___| |__   ___ _ __ ___   ( _ )   |  _ \\ ___  ___| |_ ___ _ __ ___ ");
     Console.WriteLine("\t\t | |_) / _ \\ / _` |/ __| '_ \\ / _ \\ '__/ __|  / _ \\/\\ | |_) / _ \\/ __| __/ _ \\ '__/ __|");
@@ -24,12 +27,13 @@ public class Printer{
     Console.WriteLine("> Type 'inventory' or 'inv' to have a list of the items in your inventory.");
     Console.WriteLine("> Type 'poster' to put up a poster in an area.");
     Console.WriteLine("> Type 'quit' to exit the game.\n");
-    Console.ForegroundColor = ConsoleColor.Yellow;
-    Console.WriteLine("(For Debugging) Type 'view' to check the list of items in each room.");
+    Console.WriteLine("> Type 'view' to check the list of items in each room.");
+    Console.WriteLine("> Type 'chance' to try your luck.");
     Console.ResetColor();
   }
   public static void GameOver()
   {
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("\n\n\t\t   ____    _    __  __ _____     _____     _______ ____  ");
     Console.WriteLine("\t\t  / ___|  / \\  |  \\/  | ____|   / _ \\ \\   / / ____|  _ \\ ");
@@ -40,6 +44,7 @@ public class Printer{
   }
   public static void TheEnd()
   {
+    Console.Clear();
     Console.ForegroundColor = ConsoleColor.Cyan;
     Console.WriteLine("\n\n\t\t  _____ _              _____           _ ");
     Console.WriteLine("\t\t |_   _| |__   ___    | ____|_ __   __| |");
@@ -48,8 +53,62 @@ public class Printer{
     Console.WriteLine("\t\t   |_| |_| |_|\\___|   |_____|_| |_|\\__,_|\n\n");
     Console.ResetColor();
   }
+  public static void StartQuiz() {
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("\n\t\t\t\t ============ Credits ============\n\n");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.WriteLine("\n\t\t\t\t ------ Mihnea Stefan Tudor ------\n");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("\n\t\t\t\t ---- Kamal Erouais Abdelkader ---\n");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("\n\t\t\t\t ---- Cristian Alin Ciacareanu ---\n");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.WriteLine("\n\t\t\t\t ---------- Bo Wiechmann ---------\n");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
+    Console.WriteLine("\n\t\t\t\t ---------- Mats Haertel ---------\n");
+    Console.ResetColor();
+    Console.WriteLine("\n\t\t\t\t Press 'Enter' to start the Quiz.\n");
+    Console.ReadKey();
+
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("Please, answer to the following statements in relation to the game.");
+    Console.ResetColor();
+    Quiz quiz = new Quiz();
+    Console.ForegroundColor = ConsoleColor.DarkBlue;
+    quiz.AddQuestion(new Question("\n I. Did you enjoy the game?\n"));
+    quiz.AddQuestion(new Question("\n II. Poaching significantly contributes to the decline of endangered species.\n"));
+    quiz.AddQuestion(new Question("\n III. Efforts to combat poaching should include stricter law enforcement.\n"));
+    quiz.AddQuestion(new Question("\n IV. Local communities should be involved in anti-poaching initiatives.\n"));
+    quiz.AddQuestion(new Question("\n V. Reducing the demand for illegal wildlife products can help decrease poaching.\n"));
+    quiz.AddQuestion(new Question("\n VI. Poaching has a negative impact on biodiversity and ecosystem health.\n"));
+    Console.ResetColor();
+    
+    var answers = quiz.RunQuiz();
+
+    QuizFileExporter exporter = new QuizFileExporter();
+    exporter.ExportAnswers("quiz_results.txt", answers);
+
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    Console.WriteLine("\n\t Your answers have been stored in a new text file inside the Poachers & Posters folder, please share it with us trough the following email:");
+    Console.ResetColor();
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("\n\t\t\t\t\t\t\t\t kaero24@student.sdu.dk");
+    Console.ResetColor();
+
+  }
   public static void ExitMessage(int Reputation) //THE FINAL THINGS IT PRINTS WHEN TYPING QUIT
   {
+
     Console.WriteLine("\n\n\t Congratulations, you completed our game. Let's see how well you did!\n\t\t\t[Press 'Enter' to continue]\n\n");
     while (Console.ReadKey(true).Key != ConsoleKey.Enter) {}
     switch(Reputation)
@@ -76,5 +135,6 @@ public class Printer{
         break;
     }
     Console.ResetColor();
+
   }
 }

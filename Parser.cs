@@ -9,6 +9,7 @@ namespace WorldOfZuul
     public class Parser
     {
         private readonly CommandWords commandWords = new();
+        //Loads all the command words
 
         public Command? GetCommand(string inputLine)
         {

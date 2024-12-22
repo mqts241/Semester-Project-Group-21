@@ -3,6 +3,8 @@ public class Inventory
 {
   private List<Item?> Items { get; set; } = new();
   private const int MaxInventory = 20;  //SET THE MAXIMUM AMMOUNT OF ITEMS THE PLAYER CAN CARRY IN-GAME
+  private int Reputation { get; set; } = 0;
+
   public void SeeInventory(){
     if(Items.Count == 0){
       Console.ForegroundColor = ConsoleColor.Yellow;
@@ -41,9 +43,9 @@ public class Inventory
   }
   public Item FindItemInInv(string b){
     foreach(Item? item in Items)
-      if(item!.Name!.Equals(b, StringComparison.CurrentCultureIgnoreCase))
+      if(item.Name.Equals(b, StringComparison.CurrentCultureIgnoreCase))
         return item;
-    return null!;
+    return null;
   }
   public void Take(Room? currentRoom, string b){
     if(currentRoom?.IsEmpty() == false){
@@ -51,6 +53,7 @@ public class Inventory
         Item? a = currentRoom?.FindItemInRoom(b);
         if(a != null){
           Console.WriteLine($"You took {a.Name}");
+          a.PrintDescription();
           AddItem(a);
           currentRoom?.RemoveItem(a);
         }
@@ -84,9 +87,7 @@ public class Inventory
       Console.ResetColor();
     }
   }
-
-  public void Use(Room currentRoom)
-  {
+  public void Use(Room currentRoom){
     //The inventory must not be empty
     if(IsEmpty() == true){
       Console.ForegroundColor = ConsoleColor.Red;
@@ -132,6 +133,7 @@ public class Inventory
           Console.WriteLine($"You use {selectedItem?.Name}"); //Shows the name of the selected item
           Console.ResetColor();
           ItemUse itemUse = new(currentRoom);
+          ChangeRep(10);
 
           if(itemUse.CanUseItem(selectedItem!)){
             itemUse.UseItemResult(selectedItem!);
@@ -158,5 +160,11 @@ public class Inventory
         Console.ResetColor();
       }
     }
+  }
+  public int Rep(){
+    return Reputation;
+  }
+  public void ChangeRep(int value){
+    Reputation += value;
   }
 }
