@@ -17,7 +17,7 @@ public class Chance
     }
 
 
-    public void ThrowDice()
+    public int ThrowDice()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine(PerformedAction); //initial line describing the action the player performs
@@ -33,20 +33,19 @@ public class Chance
 
         switch (randomNumber) // Differnt scenarios for the action performed (e.g. Ranger throwing his knife)
         {
+            
             case 1:
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(TheGoodEnding); // The action succeeds
+                Console.ResetColor();
+                Thread.Sleep(2000);
+                return 1;
+            default:
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(TheBadEnding);
-                //Bad case: Subract from the over all score (-1 or something)
                 Console.ResetColor();
                 Thread.Sleep(2000);
-                break;
-            case 2:
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(TheGoodEnding);
-                //Good case: Add score to the final score (+1 or something)
-                Console.ResetColor();
-                Thread.Sleep(2000);
-                break;
+                return 0;
         }
     }
 }
