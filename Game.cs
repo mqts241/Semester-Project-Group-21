@@ -431,14 +431,11 @@ public class Game
 
                     case "chance":
                         {
-                            int? var = currentRoom?.RoomChance.ThrowDice();
-                            switch(var)
-                                case 1:
-                                    Inventory.ChangeRep(10);
-                                    break;
-                                default:
-                                    
-                                
+                            int? output = currentRoom?.RoomChance.ThrowDice();
+                            if(output == 1)
+                            {
+                                Inventory.ChangeRep(10);
+                            }
                             Console.Clear();
                             break;
                         }
