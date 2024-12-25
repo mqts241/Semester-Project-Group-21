@@ -418,19 +418,26 @@ public class Game
 
                     case "talk":
                         {
-                            currentRoom?.RoomNPC.TalkNPC();
-                            switch(Console.ReadKey(true).Key)
-                            {
-                                case ConsoleKey.D1:
-                                currentRoom?.RoomNPC.Case1();
-                                break;
-                                 case ConsoleKey.D2:
-                                currentRoom?.RoomNPC.Case2();
-                                break;
-                                 case ConsoleKey.D3:
-                                currentRoom?.RoomNPC.Case3();
-                                break;
-                            }
+                            if (currentRoom?.RoomNPC != null)
+                                {
+                                    currentRoom?.RoomNPC.TalkNPC();
+                                    switch(Console.ReadKey(true).Key)
+                                    {
+                                        case ConsoleKey.D1:
+                                        currentRoom?.RoomNPC.Case1();
+                                        break;
+                                        case ConsoleKey.D2:
+                                        currentRoom?.RoomNPC.Case2();
+                                        break;
+                                        case ConsoleKey.D3:
+                                        currentRoom?.RoomNPC.Case3();
+                                        break;
+                                    }
+                                }
+                            else
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.WriteLine("Noone seems to want to talk to you...");
+                                Console.ResetColor();
                         }
                         break;
 
