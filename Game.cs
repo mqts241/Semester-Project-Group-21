@@ -438,13 +438,23 @@ public class Game
 
                     case "chance":
                         {
-                            int? output = currentRoom?.RoomChance.ThrowDice();
-                            if(output == 1)
+                            if (currentRoom?.RoomChance != null)
                             {
-                                Inventory.ChangeRep(10);
+                               int? output = currentRoom?.RoomChance.ThrowDice();
+                                if(output == 1)
+                                {
+                                    Inventory.ChangeRep(10);
+                                }
+                                Console.Clear();
+                                break; 
                             }
-                            Console.Clear();
-                            break;
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.WriteLine("You don't feel lucky here. Try somewhere else.");
+                                Console.ResetColor();
+                                break;
+                            }
                         }
                         
                     
