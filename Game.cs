@@ -280,8 +280,6 @@ public class Game
                 //Add Chance instances here:
                 Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
                 testarea.RoomChance = test;
-                Chance test2 = new("You play the game machine", "You are not good at video games and so you lose", "Hoorray, it's your lucky day. You win!");
-                market.RoomChance = test2;
         } 
     
         public void Play()
@@ -451,7 +449,7 @@ public class Game
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine("You don't feel lucky here. Try somewhere else.");
+                                Console.WriteLine("You don't feel lucky in this area. Try somewhere else.");
                                 Console.ResetColor();
                                 break;
                             }
