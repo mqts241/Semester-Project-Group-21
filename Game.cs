@@ -144,7 +144,7 @@ public class Game
             //Tiger
             Ranger_Meeting.SetExits(null, Marsh1, null, Hub_Asia);
             Marsh1.SetExits(null, Marsh2, null, null);
-            Marsh2.SetExits(Marsh1, Marsh_Tiger, Marsh1, Marsh1); // This is a maze so the player gets and lost sad and with no hopes and dreams in life 
+            Marsh2.SetExits(Marsh1, Marsh_Tiger, Marsh1, Marsh1); // This is a confusing maze 
             Marsh_Tiger.SetExits(null, null, null, Hub_Asia);
             //Jaguar and Ourangutans
             jungle.SetExits(Hub_Asia, cave_entrance, null, orangutans); //connect the final area in south
@@ -379,7 +379,7 @@ public class Game
                         Inventory?.Throw(currentRoom, command.SecondWord);
                         break;
                                          
-                    case "give": //Will be MOVED to the NPC class soon
+                    case "give": 
                         if(Inventory?.IsEmpty() == false)
                         {
                             Item? a = Inventory.FindItemInInv(command.SecondWord);
