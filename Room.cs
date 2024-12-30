@@ -74,7 +74,7 @@
             Console.ForegroundColor = ConsoleColor.Yellow;
             if(IsEmpty() == false)
             {
-                Console.Write($"You look around and discover that {ShortDescription} has {RoomItems.Count} interesting items such as");
+                Console.WriteLine($"You look around and discover that {ShortDescription} has {RoomItems.Count} interesting items such as");
                 foreach(Item item in RoomItems)
                     Console.Write($" {item.Name}");
             }
