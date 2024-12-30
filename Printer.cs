@@ -85,12 +85,16 @@ public class Printer{
     Console.ResetColor();
     Quiz quiz = new Quiz();
     Console.ForegroundColor = ConsoleColor.DarkBlue;
-    quiz.AddQuestion(new Question("\n I. Did you enjoy the game?\n"));
-    quiz.AddQuestion(new Question("\n II. Poaching significantly contributes to the decline of endangered species.\n"));
-    quiz.AddQuestion(new Question("\n III. Efforts to combat poaching should include stricter law enforcement.\n"));
-    quiz.AddQuestion(new Question("\n IV. Local communities should be involved in anti-poaching initiatives.\n"));
-    quiz.AddQuestion(new Question("\n V. Reducing the demand for illegal wildlife products can help decrease poaching.\n"));
-    quiz.AddQuestion(new Question("\n VI. Poaching has a negative impact on biodiversity and ecosystem health.\n"));
+    quiz.AddQuestion(new Question("\n I. Would you define this game experience as educative?\n"));
+    quiz.AddQuestion(new Question("\n II. I understand the role local communities play in combating poaching\n"));
+    quiz.AddQuestion(new Question("\n III. I can identify at least seven species that are commonly targeted by poachers.\n"));
+    quiz.AddQuestion(new Question("\n IV. I recognize the importance of wildlife conservation efforts in protecting endangered species.\n"));
+    quiz.AddQuestion(new Question("\n V. I feel more empowered to take action or spread awareness about anti-poaching efforts.\n"));
+    quiz.AddQuestion(new Question("\n VI. I understand how the illegal wildlife trade contributes to global environmental and security issues.\n"));
+    quiz.AddQuestion(new Question("\n VII. I can explain the connection between poaching and its effects on local economies.\n"));
+    quiz.AddQuestion(new Question("\n VIII. I am familiar with the laws and penalties in place to deter poaching.\n"));
+    quiz.AddQuestion(new Question("\n IX. I recognize the significance of supporting Governmental or Non-Governmental measures and support for anti-poaching organizations.\n"));
+    quiz.AddQuestion(new Question("\n X. I believe that education and awareness are key to reducing poaching activities worldwide.\n"));
     Console.ResetColor();
     
     var answers = quiz.RunQuiz();

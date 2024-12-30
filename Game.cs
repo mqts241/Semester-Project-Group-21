@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.ExceptionServices;
 
 namespace WorldOfZuul;
 
@@ -29,7 +30,7 @@ public class Game
         Room? mountain_forest = new("Forest", "The dense forest outside the breached wall feels with tension, sad moaning echoing from the East, your tracker picks up a signal from that direction, while two other signals pull your attention to West, deeper into the forest. Every step must be taken with caution.");
         Room? trap = new("The Trap", "You find a trapped, bleeding adult male gorilla. He's scared and looks distrustful towards you, unable to escape the trap. His moans fill the air, adding to the urgency of the moment.");
         Room? hideout = new("The Hideout", "Between the bushes, you finally find the source of the signal, a big jail trailer loaded with an adult and 2 young gorillas trapped, you spot the poachers at the distance, loading stuff and getting ready to leave with their capture, the time is ticking, you must do something.");
-
+        Room?  julian = new("Somewhere in the Mountain Forest", "Julian wants to talk to you, is a good moment to understand what happened in the sanctuary.");
         // Zebra 
         Region Afr_Grass = new("Afr_Grass");
         Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster");
@@ -89,7 +90,7 @@ public class Game
             Hub_Africa.SetRoomRegion(Afr);
             mountain_forest_path.SetRoomRegion(Afr_Mf);sanctuary.SetRoomRegion(Afr_Mf);
             rangers_office.SetRoomRegion(Afr_Mf);enclosure.SetRoomRegion(Afr_Mf);
-            mountain_forest.SetRoomRegion(Afr_Mf);trap.SetRoomRegion(Afr_Mf);hideout.SetRoomRegion(Afr_Mf);
+            mountain_forest.SetRoomRegion(Afr_Mf);trap.SetRoomRegion(Afr_Mf);hideout.SetRoomRegion(Afr_Mf);julian.SetRoomRegion(Afr_Mf);
             grassland.SetRoomRegion(Afr_Grass);tree.SetRoomRegion(Afr_Grass); hut.SetRoomRegion(Afr_Grass);
             highGrass.SetRoomRegion(Afr_Grass);openPlains.SetRoomRegion(Afr_Grass);action.SetRoomRegion(Afr_Grass);
             forest.SetRoomRegion(Afr_For);smallClearing.SetRoomRegion(Afr_For);
@@ -137,7 +138,8 @@ public class Game
             enclosure.SetExits(mountain_forest, null, null, sanctuary);
             mountain_forest.SetExits(null, trap, enclosure, hideout);
             trap.SetExit("west", mountain_forest);
-            hideout.SetExit("east", mountain_forest);
+            hideout.SetExits(null, mountain_forest, null, julian);
+            julian.SetExit("east", hideout);
                 //Asia
             Hub_Asia.SetExits(Rhino_Room, Ranger_Meeting, jungle, null); // North, East, South, West
             //Rhino
@@ -146,7 +148,7 @@ public class Game
             //Tiger
             Ranger_Meeting.SetExits(null, Marsh1, null, Hub_Asia);
             Marsh1.SetExits(null, Marsh2, null, null);
-            Marsh2.SetExits(Marsh1, Marsh_Tiger, Marsh1, Marsh1); // This is a maze so the player gets and lost sad and with no hopes and dreams in life 
+            Marsh2.SetExits(Marsh1, Marsh_Tiger, Marsh1, Marsh1); // This is a maze so the player gets lost
             Marsh_Tiger.SetExits(null, null, null, Hub_Asia);
             //Jaguar and Ourangutans
             jungle.SetExits(Hub_Asia, cave_entrance, null, orangutans); //connect the final area in south
@@ -159,7 +161,7 @@ public class Game
             Camp.SetExits(null, null, Ranger_Hall, null);
 
             //SET THE CURRENT ROOM AS THE STARTING ROOM
-            currentRoom = testarea; 
+            currentRoom = mountain_forest_path; 
 
 
             // ITEM ASSIGN TO ROOMS HERE
@@ -174,13 +176,20 @@ public class Game
 
             Item Knife = new("Knife", "A sharp knife. Maybe you can cut something with it...");
             Item apple = new("Apple", "A big, ripe apple. It would be a good treat for an animal.");
+            Item tranqrifle = new("Tranquilizer", "A rifle used exclusively to put to sleep animals or humans.");
+            Item firstaidkit = new("Medkit", "A Kit for medical use to heal every kind of injuries.");
+            Item banana = new("Banana", "A regular banana, apes and humans love this fruit.");
+            Item trapdisarmer = new("Disarmer", "A basic tool used to disarm snare traps, requieres skill and luck");
             
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
             testarea.AddItem(item1);
             savannah_hub.AddItem(Knife);
             Villlage_Rhino.AddItem(apple);
-
+            rangers_office.AddItem(tranqrifle);
+            rangers_office.AddItem(firstaidkit);
+            rangers_office.AddItem(trapdisarmer);
+            enclosure.AddItem(banana);
             //Decision Room: Action
              List<string> scareOptions = new List<string>
                 {
@@ -260,6 +269,39 @@ public class Game
 
                 Choice tigerChoice = new Choice("You notice the trapped tiger and the sinking notebook. Which one do you go for the first?", tigerOptions, tigerResults);
                 rhino.SetChoice(rhinoChoice);
+                
+                //Decision Room: Trap
+                List<string> gorillaOptions = new List<string>
+                {
+                    "Throw them a Banana, and be noisy to show dominance.",
+                    "Move slowly toward the alpha, leaving a banana next to him as a sign of submission."
+                };
+
+                Dictionary<int, string> gorillaResults = new Dictionary<int, string>
+                {
+                    {1, "The Alpha looks at you in a threatening way, forcing him to move while worsening his injuries, the rest of the gorillas answer consequently expelling you of the area abruptly."},
+                    {2, "The Alpha sees you as one of the caregivers of the sanctuary, and allows you to get closer to help him. [To Disarm the trap, use the command 'chance', and once you succeed, 'use' any of the items recovered from the sanctuary in the correct order]"}
+                };
+
+                Choice gorillaChoice = new Choice("Many gorillas are surrounding a huge male silverback gorilla, probably the alpha, which is trapped and injured in a snare trap, your pressence makes him nervious. What will you do?", gorillaOptions, gorillaResults);
+                trap.SetChoice(gorillaChoice);
+
+                //Decision Room: HideOut
+                List<string> hideoutOptions = new List<string>
+                {
+                    "Use your stealth and try to disarm the cage while they are distracted.",
+                    "Use your Tranq rifle to threat them."
+                };
+
+                Dictionary<int, string> hideoutResults = new Dictionary<int, string>
+                {
+                    {1, "You carefully get closer to the metal cage, the young gorillas are noisy, and cover up your noise. There are good news, it seems that they used the same kind of snares for their traps to lock the cage. So you may be able to use the trap disarmer"},
+                    {2, "The Poachers are now nervious and are leaving whatever they were doing to run towards the car and escape with the gorillas. You must use your weapon now!"}
+                };
+
+                Choice hideoutChoice = new Choice("You found the responsibles of this mess, the poachers are loading out their belongings and preparing their pickup truck hooked to a big cage full of young gorillas. they will leave soon, something must be done, but what?", hideoutOptions, hideoutResults);
+                hideout.SetChoice(hideoutChoice);
+
 
 
                 //Add NPC here:
@@ -270,9 +312,17 @@ public class Game
                 Villlage_Rhino.RoomNPC = Elder;
 
                 NPC Ranger = new("Old Ranger", "An old, tired looking ranger", "The tigers", "The swamps",null, "The tigers in this swamp are magnificent creatures. They are rare and mostly run away from humans, but the poachers still try to find them. Try going after the hunters, please. I am too old for this...", "Take care when you go in the swamp. Maybe try to stick to the same direction, it might help. Good luck!", null);
+
+                NPC Julian = new("Ranger Julian", "Anti-Poaching Patrol member in the mountain forest Sanctuary", "Where were you?", "The Gorillas", "The Poachers", "Yeah... we received a false emergency call that kept us away from the sanctuary, the poachers executed their plan and tried to kidnap as many young gorillas as possible", "This is a disaster, all the gorillas of the sanctuary are spread around the area, my patrol is working hard to bring them back to the sanctuary.", "The poachers did not succeed thanks to you, even if they escaped, they did it with their hands empty, and thats what matters most, the gorillas." );
+                julian.RoomNPC = Julian;
+                
                 //Add Chance instances here:
                 Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
+                Chance hideoutchance = new("You use the disarmer", "You failed disarming the cage", "The cage is open!");
+                Chance trapchance = new("You use the disarmer", "You failed disarming the trap", "The trap is disarmed and the Alpha gorilla is free!");
                 testarea.RoomChance = test;
+                hideout.RoomChance = hideoutchance;
+                trap.RoomChance = trapchance;
         } 
     
         public void Play()

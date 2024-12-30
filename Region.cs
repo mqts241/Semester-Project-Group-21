@@ -185,6 +185,29 @@ public class Region{
           PrintPosterline(endnote4);PrintPosterline(endnote5);PrintPosterline(endnote6);
           break;
 
+        case "Afr_Mf": //AFRICA - MOUNTAIN FOREST 
+          title = "Welcome to the Mountain Forest Sanctuary, home of our protected Silverback Gorilla.";
+          title2 = "Ranger Julian is in charge of the security of the Gorilla and the area around the";
+          title3 = "region and is part of the Anti-Poaching Patrol. There is important information to be shared.";
+          subtitle = "There have been rumors of poacher activity aimed at kidnapping young gorillas.";
+          p1 = "A silverback gorilla is a powerful yet gentle leader marked by its silver-gray back.";
+          p2 = "Poachers target them for trophies, the bushmeat trade, traditional beliefs, and the pet trade.";
+          p3 = "For these reasons, they are a species classified as endangered but stabilized by some sanctuaries.";
+          p4 = "Be aware and report possible snare traps in the forest. In case of injury, use a First-Aid Kit.";
+          p5 = "If you spot a poacher, contact the Anti-Poaching Patrol as soon as you possibly can.";
+          p6 = "Silverbacks are gentle by nature, but in certain circumstances, they can turn aggressive.";
+          p7 = "In such cases, tranquilizer rifles are available to rescue endangered gorillas that resist.";
+          p8 = "The biodiversity and ecosystem must be protected, especially the gorillas in the area.";
+          endnote1 = "Protect the Gorillas, report poachers' presence, and disarm the traps.";
+          PrintPosterline(title);PrintPosterline(title2);PrintPosterline(title3);
+          Console.WriteLine($"\t║{new String(' ', maxlenght)}║");Console.WriteLine($"\t║{new String(' ', maxlenght)}║");
+          PrintPosterline(subtitle);PrintPosterline(p1);PrintPosterline(p2);
+          PrintPosterline(p3);PrintPosterline(p4);PrintPosterline(p5);
+          PrintPosterline(p6);PrintPosterline(p7);PrintPosterline(p8);
+          Console.WriteLine($"\t║{new String(' ', maxlenght)}║");Console.WriteLine($"\t║{new String(' ', maxlenght)}║");
+          PrintPosterline(endnote1);
+          break;
+
       }     
       Console.WriteLine($"\t║{new String(' ', maxlenght)}║"); 
       Console.WriteLine($"\t║ ●{new String(' ', maxlenght-4)}● ║");
