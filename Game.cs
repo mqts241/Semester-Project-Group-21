@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.ExceptionServices;
 
 namespace WorldOfZuul;
 
@@ -29,7 +30,7 @@ public class Game
         Room? mountain_forest = new("Forest", "The dense forest outside the breached wall feels with tension, sad moaning echoing from the East, your tracker picks up a signal from that direction, while two other signals pull your attention to West, deeper into the forest. Every step must be taken with caution.");
         Room? trap = new("The Trap", "You find a trapped, bleeding adult male gorilla. He's scared and looks distrustful towards you, unable to escape the trap. His moans fill the air, adding to the urgency of the moment.");
         Room? hideout = new("The Hideout", "Between the bushes, you finally find the source of the signal, a big jail trailer loaded with an adult and 2 young gorillas trapped, you spot the poachers at the distance, loading stuff and getting ready to leave with their capture, the time is ticking, you must do something.");
-
+        Room?  julian = new("Somewhere in the Mountain Forest", "Julian wants to talk to you, is a good moment to understand what happened in the sanctuary.");
         // Zebra 
         Region Afr_Grass = new("Afr_Grass");
         Room? grassland = new("Grassland", "You have arrived in the Grassland.\nThe only things you can broadly see are. To the west a big tree. To the south you can see that the tall grass is ending, and it transitions into open plains.\nThe tree looks like a good spot for a poster");
@@ -53,8 +54,21 @@ public class Game
         Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
         Room? rhino = new("Rhino", "You have entered the rhino territory.");
         Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.");
+        // Savvanah 
+        Region Afr_Sav = new("Afr_Sav");
+        Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.");
+        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. In the West you will enter the village.");
+        Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
+        Room? rhino = new("Rhino", "You have entered the rhino territory.");
+        Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.");
 
         //Rhino - North
+        Region Asia = new("Asia", false);
+        Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
+
+        Region Asia_Grass = new("Asia_Grass");
+        Room? Villlage_Rhino = new("Rhino Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.");
+        Room? Rhino_Room = new("Grasslands", "You have arrived in the rhino's territory. You notice the poachers have been here, by the tire tracks in the mud and different items discarded in the grass.The old rhino is lying on the ground under a great tree, looking scared.");
         Region Asia = new("Asia", false);
         Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
 
@@ -68,13 +82,28 @@ public class Game
         Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
         Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
         Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. ");
+        Region Asia_Swamp = new("Asia_Swamp");
+        Room? Ranger_Meeting = new("Edge of the Swap", "You have arrived at the edge of the swamp, where you notice an old ranger looking worried towards the marshes.");
+        Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
+        Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
+        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. ");
 
         //Ourangutans
         Region Asia_Jungle = new("Asia_Jungle");
         Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.");
         Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
+        Region Asia_Jungle = new("Asia_Jungle");
+        Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.");
+        Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
 
         //Jaguar and where the baby orangutans are
+        Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
+        Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
+        Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
+        Room? Road = new("Road", "As you walk back to your base of operations, you notice car tracks leading north. Perhaps you should follow them.");
+        Room? Camp = new("Camp", "You arrive in a poacher camp, where you notice a caged Amur leopard, one of the rarest species in the world. It should be realeased");
+        Room? Ranger_Hall = new("Ranger Hall", "You are now in the Ranger Hall, a great room, filled with rangers, young and old, here to celebrate your accomplishments. For your deeds, you shall receive a medal and officially become a true defender of nature.");
+        Room? testarea = new("Test Area","");
         Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
         Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
         Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
@@ -89,7 +118,7 @@ public class Game
             Hub_Africa.SetRoomRegion(Afr);
             mountain_forest_path.SetRoomRegion(Afr_Mf);sanctuary.SetRoomRegion(Afr_Mf);
             rangers_office.SetRoomRegion(Afr_Mf);enclosure.SetRoomRegion(Afr_Mf);
-            mountain_forest.SetRoomRegion(Afr_Mf);trap.SetRoomRegion(Afr_Mf);hideout.SetRoomRegion(Afr_Mf);
+            mountain_forest.SetRoomRegion(Afr_Mf);trap.SetRoomRegion(Afr_Mf);hideout.SetRoomRegion(Afr_Mf);julian.SetRoomRegion(Afr_Mf);
             grassland.SetRoomRegion(Afr_Grass);tree.SetRoomRegion(Afr_Grass); hut.SetRoomRegion(Afr_Grass);
             highGrass.SetRoomRegion(Afr_Grass);openPlains.SetRoomRegion(Afr_Grass);action.SetRoomRegion(Afr_Grass);
             forest.SetRoomRegion(Afr_For);smallClearing.SetRoomRegion(Afr_For);
@@ -135,7 +164,8 @@ public class Game
             enclosure.SetExits(mountain_forest, null, null, sanctuary);
             mountain_forest.SetExits(null, trap, enclosure, hideout);
             trap.SetExit("west", mountain_forest);
-            hideout.SetExit("east", mountain_forest);
+            hideout.SetExits(null, mountain_forest, null, julian);
+            julian.SetExit("east", hideout);
                 //Asia
             Hub_Asia.SetExits(Rhino_Room, Ranger_Meeting, jungle, null); // North, East, South, West
             //Rhino
@@ -152,6 +182,9 @@ public class Game
             cave_entrance.SetExits(null, jungle, cave, null);
             cave.SetExits(cave_entrance, null, deeper_cave, null);
             deeper_cave.SetExit("east",jungle);
+            //Epilogue
+            Road.SetExits(Camp, null, null, null);
+            Camp.SetExits(null, null, Ranger_Hall, null);
             //Epilogue
             Road.SetExits(Camp, null, null, null);
             Camp.SetExits(null, null, Ranger_Hall, null);
@@ -172,6 +205,10 @@ public class Game
 
             Item Knife = new("Knife", "A sharp knife. Maybe you can cut something with it...");
             Item apple = new("Apple", "A big, ripe apple. It would be a good treat for an animal.");
+            Item tranqrifle = new("Tranquilizer", "A rifle used exclusively to put to sleep animals or humans.");
+            Item firstaidkit = new("Medkit", "A Kit for medical use to heal every kind of injuries.");
+            Item banana = new("Banana", "A regular banana, apes and humans love this fruit.");
+            Item trapdisarmer = new("Disarmer", "A basic tool used to disarm snare traps, requieres skill and luck");
 
             // Items for grassland
             Item Flare_gun = new("Flare_gun", "A Flare gun. Maybe it will come in handy later...");
@@ -182,6 +219,10 @@ public class Game
 
             //ADD ITEMS TO SPECIFIC ROOMS:
             // To add items in rooms write down here: [room_name].AddItem([name of item])
+            rangers_office.AddItem(tranqrifle);
+            rangers_office.AddItem(firstaidkit);
+            rangers_office.AddItem(trapdisarmer);
+            enclosure.AddItem(banana);
             testarea.AddItem(item1);
             savannah_hub.AddItem(Knife);
             Villlage_Rhino.AddItem(apple);
@@ -243,6 +284,38 @@ public class Game
                     "Don't stop them, because they need the profit from the horn to survive."
                 };
 
+                                //Decision Room: Trap
+                List<string> gorillaOptions = new List<string>
+                {
+                    "Throw them a Banana, and be noisy to show dominance.",
+                    "Move slowly toward the alpha, leaving a banana next to him as a sign of submission."
+                };
+
+                Dictionary<int, string> gorillaResults = new Dictionary<int, string>
+                {
+                    {1, "The Alpha looks at you in a threatening way, forcing him to move while worsening his injuries, the rest of the gorillas answer consequently expelling you of the area abruptly."},
+                    {2, "The Alpha sees you as one of the caregivers of the sanctuary, and allows you to get closer to help him. [To Disarm the trap, use the command 'chance', and once you succeed, 'use' any of the items recovered from the sanctuary in the correct order]"}
+                };
+
+                Choice gorillaChoice = new Choice("Many gorillas are surrounding a huge male silverback gorilla, probably the alpha, which is trapped and injured in a snare trap, your pressence makes him nervious. What will you do?", gorillaOptions, gorillaResults);
+                trap.SetChoice(gorillaChoice);
+
+                                //Decision Room: HideOut
+                List<string> hideoutOptions = new List<string>
+                {
+                    "Use your stealth and try to disarm the cage while they are distracted.",
+                    "Use your Tranq rifle to threat them."
+                };
+
+                Dictionary<int, string> hideoutResults = new Dictionary<int, string>
+                {
+                    {1, "You carefully get closer to the metal cage, the young gorillas are noisy, and cover up your noise. There are good news, it seems that they used the same kind of snares for their traps to lock the cage. So you may be able to use the trap disarmer"},
+                    {2, "The Poachers are now nervious and are leaving whatever they were doing to run towards the car and escape with the gorillas. You must use your weapon now!"}
+                };
+
+                Choice hideoutChoice = new Choice("You found the responsibles of this mess, the poachers are loading out their belongings and preparing their pickup truck hooked to a big cage full of young gorillas. they will leave soon, something must be done, but what?", hideoutOptions, hideoutResults);
+                hideout.SetChoice(hideoutChoice);
+
                 Dictionary<int, string> rhinoResults = new Dictionary<int, string>
                 {
                     {1, "You remember someone told you, the villagers don't need to poach for food. Hence you decide to run at the villagers screaming loudly at them. They get scared and run off. You inject an antidote for the rhino and shortly after it wakes up. Great job!"},
@@ -278,8 +351,17 @@ public class Game
 
                 NPC Ranger = new("Old Ranger", "An old, tired looking ranger", "The tigers", "The swamps",null, "The tigers in this swamp are magnificent creatures. They are rare and mostly run away from humans, but the poachers still try to find them. Try going after the hunters, please. I am too old for this...", "Take care when you go in the swamp. Maybe try to stick to the same direction, it might help. Good luck!", null);
                 //Add Chance instances here:
+
+                NPC Julian = new("Ranger Julian", "Anti-Poaching Patrol member in the mountain forest Sanctuary", "Where were you?", "The Gorillas", "The Poachers", "Yeah... we received a false emergency call that kept us away from the sanctuary, the poachers executed their plan and tried to kidnap as many young gorillas as possible", "This is a disaster, all the gorillas of the sanctuary are spread around the area, my patrol is working hard to bring them back to the sanctuary.", "The poachers did not succeed thanks to you, even if they escaped, they did it with their hands empty, and thats what matters most, the gorillas." );
+                julian.RoomNPC = Julian;
+
                 Chance test = new("You throw the knife.", "You miss and you cry", "You hit your target. Lucky.");
                 testarea.RoomChance = test;
+
+                Chance hideoutchance = new("You use the disarmer", "You failed disarming the cage", "The cage is open!");
+                Chance trapchance = new("You use the disarmer", "You failed disarming the trap", "The trap is disarmed and the Alpha gorilla is free!");
+                hideout.RoomChance = hideoutchance;
+                trap.RoomChance = trapchance;
         } 
     
         public void Play()
@@ -295,7 +377,9 @@ public class Game
                 Console.Write("> ");
 
                 string? input = Console.ReadLine(); //reads player input
+                string? input = Console.ReadLine(); //reads player input
 
+                if (string.IsNullOrEmpty(input)) //checks for empty line input
                 if (string.IsNullOrEmpty(input)) //checks for empty line input
                 {
                     Console.WriteLine("Please enter a command.");
@@ -355,7 +439,8 @@ public class Game
                     case "quit":
                         continuePlaying = false;
                         Printer.GameOver();
-                        Printer.ExitMessage(Inventory.Rep());
+                        Printer.StartQuiz();
+                        Printer.ExitMessage(Inventory!.Rep());
                         break;
 
                     case "commands":
@@ -404,7 +489,12 @@ public class Game
                         break;
                   
                     case "view": 
+                    case "view": 
                         currentRoom?.View();
+                        break;
+                    
+                    case "use":
+                        Inventory?.Use(currentRoom!);
                         break;
                     
                     case "use":
