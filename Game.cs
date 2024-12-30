@@ -54,21 +54,8 @@ public class Game
         Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
         Room? rhino = new("Rhino", "You have entered the rhino territory.");
         Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.");
-        // Savvanah 
-        Region Afr_Sav = new("Afr_Sav");
-        Room? village_mainroad = new("Village", "You enter a small village, the hum of the daily life around you. You are currently on the main road. In the south you see the market, in the east you see the savannah opening behind the village.");
-        Room? savannah_hub = new("Savannah-Hub", "You find yourself in the savannah. If you go east you enter lion territory. In the south of here rhinos were spotted in the past. In the West you will enter the village.");
-        Room? market = new("Market", "You enter the local market for food and other goods. Here you can talk to the local citizens and think about a spot to put up a poster.");
-        Room? rhino = new("Rhino", "You have entered the rhino territory.");
-        Room? lion = new("Lion", "As you enter the lion territory you see a little lion cub that got caught in a snare trap. Maybe you could free the lion using an item.");
 
         //Rhino - North
-        Region Asia = new("Asia", false);
-        Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
-
-        Region Asia_Grass = new("Asia_Grass");
-        Room? Villlage_Rhino = new("Rhino Village", "You are in the Village. You notice a big apple tree in the middle of the town square, full of red fruits. The village is filled with small huts, with people going around, busy. You notice the mayor coming over to you.");
-        Room? Rhino_Room = new("Grasslands", "You have arrived in the rhino's territory. You notice the poachers have been here, by the tire tracks in the mud and different items discarded in the grass.The old rhino is lying on the ground under a great tree, looking scared.");
         Region Asia = new("Asia", false);
         Room? Hub_Asia = new("Asia Sanctuary", "You are in Asia's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here.");
 
@@ -82,28 +69,12 @@ public class Game
         Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
         Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
         Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. ");
-        Region Asia_Swamp = new("Asia_Swamp");
-        Room? Ranger_Meeting = new("Edge of the Swap", "You have arrived at the edge of the swamp, where you notice an old ranger looking worried towards the marshes.");
-        Room? Marsh1 = new("In the Swamp", "You are now in the Swamp. The scenery looks the same as five minutes ago, but you feel like you are on the right track");
-        Room? Marsh2 = new("In the Swamp", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
-        Room? Marsh_Tiger = new("In The Heart of the Swamp", "You have arrived in the middle of the Swamp, where you notice the tiger struggling under a fallen tree. ");
-
         //Ourangutans
-        Region Asia_Jungle = new("Asia_Jungle");
-        Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.");
-        Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
         Region Asia_Jungle = new("Asia_Jungle");
         Room? jungle = new("Jungle","You have arrived in the jungle. The poachers are no where to be seen but there are some footsteps heading east. Maybe it's worth investigating.");
         Room? orangutans = new("Ourangutans group", "You wander around the jungle when you find a group of ourangutans. You notice the group has lost three their babies, so you decide to go venture in the misterious jungle to find and rescue them.");
 
         //Jaguar and where the baby orangutans are
-        Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
-        Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
-        Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
-        Room? Road = new("Road", "As you walk back to your base of operations, you notice car tracks leading north. Perhaps you should follow them.");
-        Room? Camp = new("Camp", "You arrive in a poacher camp, where you notice a caged Amur leopard, one of the rarest species in the world. It should be realeased");
-        Room? Ranger_Hall = new("Ranger Hall", "You are now in the Ranger Hall, a great room, filled with rangers, young and old, here to celebrate your accomplishments. For your deeds, you shall receive a medal and officially become a true defender of nature.");
-        Room? testarea = new("Test Area","");
         Room? cave = new("Cave", "Inside the cave there is darkness but you can hear sounds coming from deep inside the cave... how misterious..?");
         Room? cave_entrance = new("Entrance of the cave", "Around the cave entrance there are some rare plants that can be used to treat wounds. I wonder how would that be useful to anything?");
         Room? deeper_cave = new("Deep into the cave","In the complete darkness you can hear some sounds. We could expect the poachers to be here hiding. Or maybe it was... the wind? Nothing can be certain unless we explore.");
@@ -377,7 +348,6 @@ public class Game
                 Console.Write("> ");
 
                 string? input = Console.ReadLine(); //reads player input
-                string? input = Console.ReadLine(); //reads player input
 
                 if (string.IsNullOrEmpty(input)) //checks for empty line input
                 if (string.IsNullOrEmpty(input)) //checks for empty line input
@@ -489,12 +459,7 @@ public class Game
                         break;
                   
                     case "view": 
-                    case "view": 
                         currentRoom?.View();
-                        break;
-                    
-                    case "use":
-                        Inventory?.Use(currentRoom!);
                         break;
                     
                     case "use":
