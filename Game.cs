@@ -375,13 +375,6 @@ public class Game
                             //Display the result of your choice with GetResult method
                             string result = currentRoom.roomChoice().GetResult(choice);
 
-                            /*Could be useful if we want a command to be executed as a result of a Choice
-                            if (result.StartsWith("cmd:"))
-                            {
-                                string cmd = result.Substring(4);
-                                ProcessCommand(cmd);
-                            }
-                            */
                             Console.WriteLine();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine(result);
