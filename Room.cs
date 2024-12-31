@@ -76,7 +76,7 @@
             {
                 Console.WriteLine($"You look around and discover that {ShortDescription} has {RoomItems.Count} interesting items such as");
                 foreach(Item item in RoomItems)
-                    Console.Write($" {item.Name}");
+                    Console.Write($"{item.Name}, ");
             }
             else Console.WriteLine("There are no items in the room!");
             Console.ResetColor();
