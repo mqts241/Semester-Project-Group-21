@@ -161,7 +161,7 @@ public class Game
             Camp.SetExits(null, null, Ranger_Hall, null);
 
             //SET THE CURRENT ROOM AS THE STARTING ROOM
-            currentRoom = market; 
+            currentRoom = Hub_Africa; 
 
 
             // ITEM ASSIGN TO ROOMS HERE
@@ -481,6 +481,7 @@ public class Game
                                         currentRoom?.RoomNPC.Case3();
                                         break;
                                     }
+                                    break;
                                 }
                             else
                                 Console.ForegroundColor = ConsoleColor.Yellow;
