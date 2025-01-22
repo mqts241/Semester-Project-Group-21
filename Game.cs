@@ -19,7 +19,7 @@ public class Game
             //Africa 
         //Africa_HUB
         Region Afr = new("Afr", false);
-        Room? Hub_Africa = new("Africa Sanctuary", "You are in Africa's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers alraedy got here."); 
+        Room? Hub_Africa = new("Africa Sanctuary", "You are in Africa's Sanctuary, where rangers rest and prepare for missions to come. It's a great watchtower, in the middle of the forest. From here, you can see for a long distance in every direction, noticing that the poachers already got here."); 
 
            //Mountain Forest Rooms
         Region Afr_Mf = new("Afr_Mf");

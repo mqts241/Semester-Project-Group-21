@@ -1,5 +1,4 @@
 using System.Dynamic;
-using System.Threading; //Adds a delay between Console.WriteLines()
 
 namespace WorldOfZuul;
 
