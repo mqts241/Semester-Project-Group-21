@@ -29,6 +29,7 @@ public class Printer{
     Console.WriteLine("> Type 'quit' to exit the game.\n");
     Console.WriteLine("> Type 'view' to check the list of items in each room.");
     Console.WriteLine("> Type 'chance' to try your luck.");
+    Console.WriteLine("> Type 'talk' to interact with NPCs.");
     Console.ResetColor();
   }
   public static void GameOver()
